@@ -6,11 +6,14 @@ extends CharacterBody2D
 
 @onready var body_sprite := $body
 @onready var flasher := $body/flasher
+@onready var gun := $gun_anchor
+@onready var camera : Camera2D = get_parent().get_node("camera")
 
 const player_data : PlayerData = preload("res://scenes/player/data.tres")
 
 func _ready() -> void:
 	player_data.add_item("Patient Demise")
+	Global.player = self
 
 func _process(delta : float) -> void:
 	var input : Vector2 = Input.get_vector("left", "right", "up", "down")

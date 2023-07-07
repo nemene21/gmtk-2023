@@ -92,7 +92,6 @@ _data = {
 }
 
 [node name="PostProcessingLayer" type="CanvasLayer"]
-layer = 3
 script = ExtResource("1_uvnqh")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

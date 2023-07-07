@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://waghafltld3i"]
+
+[ext_resource type="Texture2D" uid="uid://du31w73m17yqq" path="res://scenes/player/cursor.png" id="1_tvfb7"]
+[ext_resource type="Script" path="res://scenes/player/cursor.gd" id="2_6s1ha"]
+
+[sub_resource type="Animation" id="Animation_8owr2"]
+resource_name = "spin"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(3, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_0mp24"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vhebq"]
+_data = {
+"RESET": SubResource("Animation_0mp24"),
+"spin": SubResource("Animation_8owr2")
+}
+
+[node name="cursor" type="Sprite2D"]
+scale = Vector2(4, 4)
+texture = ExtResource("1_tvfb7")
+hframes = 2
+script = ExtResource("2_6s1ha")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vhebq")
+}

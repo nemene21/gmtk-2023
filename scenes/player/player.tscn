@@ -1,11 +1,19 @@
-[gd_scene load_steps=16 format=3 uid="uid://bf8e26542y7vu"]
+[gd_scene load_steps=26 format=3 uid="uid://bf8e26542y7vu"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_8vl52"]
+[ext_resource type="Shader" path="res://addons/framework/shaders/usable_shaders/flash.gdshader" id="2_551xo"]
 [ext_resource type="Texture2D" uid="uid://dxogjseo5k033" path="res://scenes/player/coolwizardguy.png" id="2_a1kyt"]
 [ext_resource type="PackedScene" uid="uid://dy2h01o2ksyes" path="res://addons/framework/op_nodes/components/hurtbox.tscn" id="3_y2tm1"]
 [ext_resource type="Texture2D" uid="uid://cyyl7hgw8sdu2" path="res://scenes/vfx/partcl.png" id="4_ak2l2"]
 [ext_resource type="Texture2D" uid="uid://bghhwl0nf8gcq" path="res://scenes/player/jetpack.png" id="4_icbv5"]
 [ext_resource type="PackedScene" uid="uid://dq16obamf21gv" path="res://addons/framework/op_nodes/components/flasher.tscn" id="5_68740"]
+[ext_resource type="Texture2D" uid="uid://ci632ct5rjnod" path="res://scenes/player/ak.png" id="7_fqkw5"]
+[ext_resource type="Script" path="res://scenes/player/gun.gd" id="7_q4ltt"]
+[ext_resource type="Texture2D" uid="uid://dx8xe6snbahg1" path="res://scenes/vfx/light.png" id="10_bny76"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q56ux"]
+shader = ExtResource("2_551xo")
+shader_parameter/flash = 0.0
 
 [sub_resource type="Curve" id="Curve_c1qfl"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.13253, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -127,17 +135,111 @@ _data = {
 "move": SubResource("Animation_fyehp")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lyb8h"]
+shader = ExtResource("2_551xo")
+shader_parameter/flash = 0.0
+
+[sub_resource type="Animation" id="Animation_46fh7"]
+resource_name = "shoot"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ak:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0.7, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ak:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [-0.261799, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ak:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(11, 1.19209e-07), Vector2(15, 1.19209e-07)]
+}
+
+[sub_resource type="Animation" id="Animation_823a0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ak:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.7, 1.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ak:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.261799]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ak:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(11, 1.19209e-07)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_25fki"]
+_data = {
+"RESET": SubResource("Animation_823a0"),
+"shoot": SubResource("Animation_46fh7")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fsjiq"]
+blend_mode = 1
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 0
 script = ExtResource("1_8vl52")
 
 [node name="body" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_q56ux")
 position = Vector2(0, -4)
 scale = Vector2(3, 3)
 texture = ExtResource("2_a1kyt")
 
 [node name="jetpack" type="Sprite2D" parent="body"]
 z_index = -1
+use_parent_material = true
 position = Vector2(-4, 0)
 texture = ExtResource("4_icbv5")
 
@@ -178,3 +280,33 @@ playback_default_blend_time = 0.3
 libraries = {
 "": SubResource("AnimationLibrary_6fhnt")
 }
+
+[node name="gun_anchor" type="Node2D" parent="."]
+position = Vector2(0, 5)
+scale = Vector2(3, 3)
+script = ExtResource("7_q4ltt")
+
+[node name="reload_timer" type="Timer" parent="gun_anchor"]
+wait_time = 0.2
+one_shot = true
+
+[node name="ak" type="Sprite2D" parent="gun_anchor"]
+material = SubResource("ShaderMaterial_lyb8h")
+position = Vector2(11, 1.19209e-07)
+rotation = -0.261799
+scale = Vector2(0.7, 1.2)
+texture = ExtResource("7_fqkw5")
+
+[node name="flasher" parent="gun_anchor/ak" instance=ExtResource("5_68740")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="gun_anchor"]
+libraries = {
+"": SubResource("AnimationLibrary_25fki")
+}
+
+[node name="light" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.105882)
+material = SubResource("CanvasItemMaterial_fsjiq")
+texture = ExtResource("10_bny76")
+
+[connection signal="timeout" from="gun_anchor/reload_timer" to="gun_anchor" method="_on_reload_timer_timeout"]
