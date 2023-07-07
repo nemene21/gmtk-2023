@@ -1,0 +1,122 @@
+[gd_scene load_steps=13 format=3 uid="uid://b3f711xhh3loa"]
+
+[ext_resource type="Script" path="res://addons/framework/scripts/post_processing_layer.gd" id="1_uvnqh"]
+[ext_resource type="Shader" path="res://addons/framework/shaders/post_processing.gdshader" id="2_wu3av"]
+[ext_resource type="Shader" path="res://addons/framework/singletons/transition_shader.gdshader" id="3_1cd0b"]
+[ext_resource type="Texture2D" uid="uid://bxgepq8t42884" path="res://addons/framework/singletons/transition_textures/star.png" id="4_e57c8"]
+
+[sub_resource type="Environment" id="Environment_0hb7u"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gbe1o"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0uhnf"]
+noise = SubResource("FastNoiseLite_gbe1o")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1aoct"]
+shader = ExtResource("2_wu3av")
+shader_parameter/vignette_color = null
+shader_parameter/vignette_noisiness = 0.0
+shader_parameter/vignette_noise_warp_speed = 0.0
+shader_parameter/centre = Vector2(0.5, 0.5)
+shader_parameter/distance_pow = 5.0
+shader_parameter/distance_multiplyer = 0.0
+shader_parameter/chromatic_abberation = null
+shader_parameter/res = Vector2(256, 150)
+shader_parameter/warp = 0.0
+shader_parameter/vignette_noise = SubResource("NoiseTexture2D_0uhnf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6p83x"]
+shader = ExtResource("3_1cd0b")
+shader_parameter/animation = 0.0
+shader_parameter/offset = null
+shader_parameter/res = Vector2(1024, 600)
+
+[sub_resource type="Animation" id="Animation_s1h7b"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionTexture:material:shader_parameter/animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionTexture:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_g0ea3"]
+resource_name = "transition"
+length = 0.6
+step = 0.01
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionTexture:material:shader_parameter/animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.9, -0.25, 0, 0.25, 0, 1.6, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TransitionTexture:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yr8h0"]
+_data = {
+"RESET": SubResource("Animation_s1h7b"),
+"transition": SubResource("Animation_g0ea3")
+}
+
+[node name="PostProcessingLayer" type="CanvasLayer"]
+layer = 3
+script = ExtResource("1_uvnqh")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0hb7u")
+
+[node name="PostProcessingDraw" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_1aoct")
+offset_right = 1024.0
+offset_bottom = 600.0
+mouse_filter = 2
+
+[node name="TransitionTexture" type="TextureRect" parent="."]
+visible = false
+texture_repeat = 2
+material = SubResource("ShaderMaterial_6p83x")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_e57c8")
+
+[node name="TransitionPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yr8h0")
+}

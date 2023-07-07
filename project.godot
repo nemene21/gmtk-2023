@@ -1,0 +1,27 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Gmtk-2023"
+config/features=PackedStringArray("4.0", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+AudioManager="*res://addons/framework/scripts/audio_manager.gd"
+VfxManager="*res://addons/framework/scripts/vfx_manager.gd"
+Global="*res://addons/framework/singletons/Global.tscn"
+Random="*res://addons/framework/scripts/random.gd"
+PostProcessing="*res://addons/framework/singletons/PostProcessCanvas.tscn"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/framework/plugin.cfg")

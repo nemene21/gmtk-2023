@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://addons/framework/scripts/node_scripts/lightning.gd" id="1_wkhaw"]
+
+[node name="lightning" type="Line2D"]
+points = PackedVector2Array(-2.89304, 0, 1.65997, 64, 14.5899, 128, -9.58173, 192, -10.0737, 256, 15.3689, 320, -14.1605, 384)
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("1_wkhaw")
+movement = 16.0
+speed = 10.0

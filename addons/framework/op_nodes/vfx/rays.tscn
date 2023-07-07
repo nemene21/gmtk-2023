@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3hl5bljbe2bg"]
+
+[sub_resource type="Shader" id="Shader_4qnne"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+render_mode blend_add;
+
+uniform int ray_count = 5;
+uniform float width : hint_range(-1.0, 1.0);
+uniform sampler2D gradient;
+uniform float speed : hint_range(-32.0, 32.0) = 1.0;
+
+const vec2 center = vec2(.5, .5);
+
+float atan2(vec2 vector) {
+	return atan( vector.y / vector.x ) + PI * float(vector.x < 0.0);
+}
+
+void fragment() {
+	vec2 difference = UV - center;
+	float dist = length(difference);
+	float animation = 1.0 - dist * 2.0;
+	float angle = atan2(difference) * float(ray_count);
+	COLOR.a *= texture(gradient, vec2(animation, .0)).a;
+	COLOR.a *= float(sin(angle + TIME * speed) < width) * float(animation > .0);
+}
+"
+
+[sub_resource type="Gradient" id="Gradient_o45cb"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.536585, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.466667, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bnuks"]
+gradient = SubResource("Gradient_o45cb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m4x80"]
+resource_local_to_scene = true
+shader = SubResource("Shader_4qnne")
+shader_parameter/ray_count = 5
+shader_parameter/width = 4.75e-08
+shader_parameter/speed = 32.0
+shader_parameter/gradient = SubResource("GradientTexture1D_bnuks")
+
+[node name="rays" type="Node2D"]
+
+[node name="rays" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_m4x80")
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+pivot_offset = Vector2(64, 64)
