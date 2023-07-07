@@ -21,7 +21,7 @@ shader_parameter/centre = Vector2(0.5, 0.5)
 shader_parameter/distance_pow = 5.0
 shader_parameter/distance_multiplyer = 0.0
 shader_parameter/chromatic_abberation = null
-shader_parameter/res = Vector2(256, 150)
+shader_parameter/res = Vector2(320, 180)
 shader_parameter/warp = 0.0
 shader_parameter/vignette_noise = SubResource("NoiseTexture2D_0uhnf")
 
