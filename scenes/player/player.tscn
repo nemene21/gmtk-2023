@@ -38,8 +38,8 @@ radius = 19.0263
 collision_layer = 0
 script = ExtResource("1_8vl52")
 speed = 500.0
-accel = 2000.0
-frict = 800.0
+accel = 1000.0
+frict = 1000.0
 
 [node name="body" type="Sprite2D" parent="."]
 scale = Vector2(3, 3)

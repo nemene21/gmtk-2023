@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4s5tgj4dw4he"
-path="res://.godot/imported/almightyorb.png-ba97410675d8a1855737339312ec4bda.ctex"
+path="res://.godot/imported/almightyorb.png-90e463d31a580f33571e9798c40b7378.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://items/almightyorb.png"
-dest_files=["res://.godot/imported/almightyorb.png-ba97410675d8a1855737339312ec4bda.ctex"]
+source_file="res://scenes/items/almightyorb.png"
+dest_files=["res://.godot/imported/almightyorb.png-90e463d31a580f33571e9798c40b7378.ctex"]
 
 [params]
 

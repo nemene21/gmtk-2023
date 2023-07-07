@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://diq541e3clnxd"]
+[gd_scene load_steps=6 format=3 uid="uid://diq541e3clnxd"]
 
 [ext_resource type="PackedScene" uid="uid://bf8e26542y7vu" path="res://scenes/player/player.tscn" id="1_3v7hw"]
+[ext_resource type="Shader" path="res://scenes/background.gdshader" id="2_4dqtd"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_11nwr"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_itgfd"]
+noise = SubResource("FastNoiseLite_11nwr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_36ek2"]
+shader = ExtResource("2_4dqtd")
+shader_parameter/dark_color = Color(0, 0.0588235, 0.278431, 1)
+shader_parameter/light_color = Color(0, 0.156863, 0.34902, 1)
+shader_parameter/hole_position = Vector2(0.723, 0.704)
+shader_parameter/hole_size = 0.169
+shader_parameter/stripes = 8.0
+shader_parameter/stripe_curve = 15.0
+shader_parameter/spin_speed = 0.35
+shader_parameter/noise = SubResource("NoiseTexture2D_itgfd")
 
 [node name="Main" type="Node2D"]
 
@@ -8,3 +25,14 @@
 speed = null
 accel = null
 frict = null
+
+[node name="bg_layer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="bg" type="ColorRect" parent="bg_layer"]
+material = SubResource("ShaderMaterial_36ek2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
