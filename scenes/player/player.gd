@@ -4,8 +4,10 @@ extends CharacterBody2D
 @export var accel : float = 3
 @export var frict : float = 5
 
+const player_data : PlayerData = preload("res://scenes/player/data.tres") 
+
 func _ready() -> void:
-	pass
+	player_data.add_item("Patient Demise")
 
 func _process(delta : float) -> void:
 	var input : Vector2 = Input.get_vector("left", "right", "up", "down")
