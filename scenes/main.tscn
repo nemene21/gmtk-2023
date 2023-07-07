@@ -45,3 +45,5 @@ grow_vertical = 2
 layer = 2
 
 [node name="cursor" parent="ui" instance=ExtResource("3_31t07")]
+rotation = 1.5708
+scale = Vector2(3, 3)
