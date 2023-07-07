@@ -20,6 +20,8 @@ func _process(delta : float) -> void:
 	
 	move_and_slide()
 	
+	$AnimationPlayer.play(["idle", "move"][int(velocity.length() > 10.0)])
+	
 	# Turning player
 	var mouse_right = get_global_mouse_position().x > global_position.x
 	body_sprite.scale.x = lerp(body_sprite.scale.x, (float(mouse_right) * 2 - 1) * 3, delta * 20)
