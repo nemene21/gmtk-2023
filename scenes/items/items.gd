@@ -1,7 +1,7 @@
 extends Node
 class_name Items
 
-const items = {
+const items : Dictionary = {
 	"Allmighty Orb" : {
 		"stats" : {
 			"damage_per_bullet" : 0.1

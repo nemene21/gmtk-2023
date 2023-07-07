@@ -22,9 +22,6 @@ shader_parameter/noise = SubResource("NoiseTexture2D_itgfd")
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_3v7hw")]
-speed = 170.0
-accel = 3.0
-frict = 5.0
 
 [node name="bg_layer" type="CanvasLayer" parent="."]
 layer = -1

@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://bf8e26542y7vu"]
+[gd_scene load_steps=16 format=3 uid="uid://bf8e26542y7vu"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_8vl52"]
 [ext_resource type="Texture2D" uid="uid://dxogjseo5k033" path="res://scenes/player/coolwizardguy.png" id="2_a1kyt"]
 [ext_resource type="PackedScene" uid="uid://dy2h01o2ksyes" path="res://addons/framework/op_nodes/components/hurtbox.tscn" id="3_y2tm1"]
 [ext_resource type="Texture2D" uid="uid://cyyl7hgw8sdu2" path="res://scenes/vfx/partcl.png" id="4_ak2l2"]
 [ext_resource type="Texture2D" uid="uid://bghhwl0nf8gcq" path="res://scenes/player/jetpack.png" id="4_icbv5"]
+[ext_resource type="PackedScene" uid="uid://dq16obamf21gv" path="res://addons/framework/op_nodes/components/flasher.tscn" id="5_68740"]
 
 [sub_resource type="Curve" id="Curve_c1qfl"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.13253, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -34,6 +35,33 @@ size = Vector2(39, 58)
 [sub_resource type="CircleShape2D" id="CircleShape2D_yr463"]
 radius = 19.0263
 
+[sub_resource type="Animation" id="Animation_o0g8d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body/jetpack:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -4)]
+}
+
 [sub_resource type="Animation" id="Animation_wxi6o"]
 resource_name = "idle"
 length = 0.6
@@ -41,77 +69,26 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("body:rotation")
+tracks/0/path = NodePath("body/jetpack:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("body/jetpack:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
 "values": [Vector2(-4, -1), Vector2(-4, 2), Vector2(-4, -1)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("body:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
 "values": [Vector2(0, 2), Vector2(0, -4), Vector2(0, 2)]
-}
-
-[sub_resource type="Animation" id="Animation_o0g8d"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("body:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("body/jetpack:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-4, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("body:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -4)]
 }
 
 [sub_resource type="Animation" id="Animation_fyehp"]
@@ -121,34 +98,22 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("body:rotation")
+tracks/0/path = NodePath("body/jetpack:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.20944]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("body/jetpack:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
 "values": [Vector2(-4, -1), Vector2(-4, 2), Vector2(-4, -1)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("body:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6),
 "transitions": PackedFloat32Array(-2, -2, -2),
 "update": 0,
@@ -165,9 +130,6 @@ _data = {
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 0
 script = ExtResource("1_8vl52")
-speed = 500.0
-accel = 1000.0
-frict = 1000.0
 
 [node name="body" type="Sprite2D" parent="."]
 position = Vector2(0, -4)
@@ -179,13 +141,25 @@ z_index = -1
 position = Vector2(-4, 0)
 texture = ExtResource("4_icbv5")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="body/jetpack"]
+[node name="particles" type="GPUParticles2D" parent="body/jetpack"]
 position = Vector2(-3.33333, 8.33333)
-amount = 16
+amount = 12
 process_material = SubResource("ParticleProcessMaterial_po0jp")
 texture = ExtResource("4_ak2l2")
-lifetime = 0.6
+lifetime = 0.5
 speed_scale = 2.0
+randomness = 1.0
+
+[node name="particles2" type="GPUParticles2D" parent="body/jetpack"]
+position = Vector2(3, 8.33333)
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_po0jp")
+texture = ExtResource("4_ak2l2")
+lifetime = 0.5
+speed_scale = 2.0
+randomness = 1.0
+
+[node name="flasher" parent="body" instance=ExtResource("5_68740")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
