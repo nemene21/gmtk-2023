@@ -25,7 +25,7 @@ const items = {
 			"bullet_amount" : 2,
 			"spread" : 33
 		},
-		"description" : "You shoot 2 more bullets but loose accuracy..."
+		"description" : "You shoot 2 more bullets but lose accuracy..."
 	},
 	"Sniper Scope" : {
 		"stats" : {
@@ -34,7 +34,13 @@ const items = {
 			"firerate" : -0.5,
 			"damage" : 10
 		},
-		"description" : "You shoot 2 more bullets but loose accuracy..."
+		"description" : "Your shots are more accurate, faster and do more damage, but you shoot much slower..."
+	},
+	"Void's Edge" : {
+		"stats" : {
+			"double_damage_when_1hp" : 1
+		},
+		"description" : "The adrenaline makes you do double damage when on 1 HP!?"
 	}
 }
 
@@ -42,3 +48,9 @@ static func new_item(name : String) -> Dictionary:
 	var item = items[name].duplicate(true)
 	item.name = name
 	return item
+
+static func random_new_item() -> Dictionary:
+	var item_keys = items.keys()
+	return new_item(item_keys[round(
+		randf() * len(item_keys)
+	)])
