@@ -44,13 +44,12 @@ const items = {
 	}
 }
 
-static func new_item(name : String) -> Dictionary:
-	var item = items[name].duplicate(true)
-	item.name = name
+static func get_item(name : String) -> Dictionary:
+	var item = items[name]
 	return item
 
-static func random_new_item() -> Dictionary:
+static func random_item_name() -> String:
 	var item_keys = items.keys()
-	return new_item(item_keys[round(
-		randf() * len(item_keys)
-	)])
+	return item_keys[
+		round( randf() * len(item_keys) )
+	]
