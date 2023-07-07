@@ -23,6 +23,11 @@ Global="*res://addons/framework/singletons/Global.tscn"
 Random="*res://addons/framework/scripts/random.gd"
 PostProcessing="*res://addons/framework/singletons/PostProcessCanvas.tscn"
 
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/framework/plugin.cfg")
