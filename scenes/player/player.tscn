@@ -5,23 +5,26 @@
 [ext_resource type="PackedScene" uid="uid://dy2h01o2ksyes" path="res://addons/framework/op_nodes/components/hurtbox.tscn" id="3_y2tm1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a6s56"]
-size = Vector2(14, 14)
+size = Vector2(64, 64)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yr463"]
-radius = 5.0
+radius = 60.075
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 0
 script = ExtResource("1_8vl52")
+speed = 700.0
+accel = 500.0
+frict = 450.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_dbbrm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_a6s56")
 
 [node name="hurtbox" parent="." instance=ExtResource("3_y2tm1")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+visible = false
 shape = SubResource("CircleShape2D_yr463")
