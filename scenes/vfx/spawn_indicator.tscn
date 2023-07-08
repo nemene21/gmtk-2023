@@ -1,0 +1,164 @@
+[gd_scene load_steps=11 format=3 uid="uid://dkb1mi63cvk0l"]
+
+[ext_resource type="Texture2D" uid="uid://cyyl7hgw8sdu2" path="res://scenes/vfx/partcl.png" id="1_l7xyo"]
+[ext_resource type="Script" path="res://scenes/vfx/spawn_indicator.gd" id="1_ovrol"]
+
+[sub_resource type="Gradient" id="Gradient_epcwa"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.244444, 0.540741)
+colors = PackedColorArray(0, 0.470588, 0.6, 1, 0.0627451, 0.823529, 0.458824, 1, 0.74902, 1, 0.235294, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_04a8j"]
+gradient = SubResource("Gradient_epcwa")
+
+[sub_resource type="Curve" id="Curve_lasvu"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0843374, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_5dh6c"]
+curve = SubResource("Curve_lasvu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5drks"]
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_box_extents = Vector3(4, 0, 1)
+particle_flag_disable_z = true
+gravity = Vector3(0, -100, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 3.0
+scale_max = 6.0
+scale_curve = SubResource("CurveTexture_5dh6c")
+color_ramp = SubResource("GradientTexture1D_04a8j")
+
+[sub_resource type="Animation" id="Animation_tpcr2"]
+resource_name = "life"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(5, 0), Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("particles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.5, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"dead"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_u7686"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("particles:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rjbfo"]
+_data = {
+"RESET": SubResource("Animation_u7686"),
+"life": SubResource("Animation_tpcr2")
+}
+
+[node name="spawn_indicator" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_ovrol")
+
+[node name="particles" type="GPUParticles2D" parent="."]
+position = Vector2(0, 7.33333)
+emitting = false
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_5drks")
+texture = ExtResource("1_l7xyo")
+lifetime = 2.0
+speed_scale = 1.5
+
+[node name="Label" type="Label" parent="."]
+offset_left = -1.0
+offset_top = -10.0
+offset_right = 3.0
+offset_bottom = 21.0
+theme_override_colors/font_color = Color(0.74902, 1, 0.235294, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 4
+text = "!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "life"
+libraries = {
+"": SubResource("AnimationLibrary_rjbfo")
+}

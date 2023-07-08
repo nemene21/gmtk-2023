@@ -34,14 +34,15 @@ func new_wave():
 		if points - cost >= 0:
 			var enemy = enemy_scene.instantiate()
 			enemy.global_position = Vector2(
-				randf_range(0, 960),
-				randf_range(0, 540)
+				randf_range(64, 960 - 64),
+				randf_range(64, 540 - 64)
 			)
 			
 			enemy.connect("die", enemy_died)
 			enemy_count += 1
-
-			call_deferred("add_child", enemy)
+			
+			var indicator = VfxManager.play_vfx("enemy_spawn", enemy.global_position)
+			indicator.enemy = enemy
 			
 			points -= cost
 			
