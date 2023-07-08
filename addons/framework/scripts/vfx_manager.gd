@@ -8,7 +8,10 @@ var kill_timer = preload("res://addons/framework/op_nodes/kill_timer.tscn")
 func _ready():
 	add_vfx("shockwave", "res://addons/framework/op_nodes/vfx/shockwave.tscn")
 	add_vfx("real_shockwave", "res://addons/framework/op_nodes/vfx/realistic_shockwave.tscn")
-
+	
+	add_vfx("player_shoot", "res://scenes/vfx/player_shoot.tscn")
+	add_vfx("enemy_hit", "res://scenes/vfx/enemy_hit.tscn")
+	
 func set_target(new_target):
 	target = new_target
 

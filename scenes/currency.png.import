@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn6bse7nojvbl"
-path="res://.godot/imported/bullet.png-637da8ce3b00be878a98ec117b4c28af.ctex"
+uid="uid://rw5flsw6u2eo"
+path="res://.godot/imported/currency.png-ce1702661406f1694d060e0de94d924c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/player/bullet.png"
-dest_files=["res://.godot/imported/bullet.png-637da8ce3b00be878a98ec117b4c28af.ctex"]
+source_file="res://scenes/currency.png"
+dest_files=["res://.godot/imported/currency.png-ce1702661406f1694d060e0de94d924c.ctex"]
 
 [params]
 

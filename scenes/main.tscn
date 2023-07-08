@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://diq541e3clnxd"]
+[gd_scene load_steps=10 format=3 uid="uid://diq541e3clnxd"]
 
 [ext_resource type="PackedScene" uid="uid://bf8e26542y7vu" path="res://scenes/player/player.tscn" id="1_3v7hw"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_sin0s"]
 [ext_resource type="Shader" path="res://scenes/background.gdshader" id="2_4dqtd"]
 [ext_resource type="PackedScene" uid="uid://kf8f2ip2bw4y" path="res://addons/framework/op_nodes/shakeable_camera_2d.tscn" id="2_tvnqt"]
 [ext_resource type="PackedScene" uid="uid://waghafltld3i" path="res://scenes/player/cursor.tscn" id="3_31t07"]
+[ext_resource type="PackedScene" uid="uid://b5qyl46cc4v7y" path="res://scenes/enemies/skeleton/skeleton_enemy.tscn" id="6_2q7r7"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_11nwr"]
 frequency = 0.03
@@ -51,3 +52,6 @@ grow_vertical = 2
 layer = 2
 
 [node name="cursor" parent="ui" instance=ExtResource("3_31t07")]
+
+[node name="skeleton_enemy" parent="." instance=ExtResource("6_2q7r7")]
+position = Vector2(816, 300)

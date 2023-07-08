@@ -25,7 +25,6 @@ func _process(delta):
 
 func shoot():
 	emit_signal("shot")
-	animation_player.play("shoot")
 	
 	reloaded = false
 	reload_timer.start()
@@ -34,10 +33,12 @@ func shoot():
 	var direction  : Vector2 = difference.normalized()
 	
 	player.camera.shake(4, 20, 0.1, direction.angle())
+	animation_player.play("shoot")
+	VfxManager.play_vfx("player_shoot", barrel.global_position, direction.angle())
 	
 	var bullet := bullet_scene.instantiate()
 	bullet.global_position = barrel.global_position
-	bullet.velocity = direction * 1000
+	bullet.velocity = direction.rotated(randf_range(-0.08, 0.08)) * 1000
 	
 	player.get_parent().add_child(bullet)
 
