@@ -312,12 +312,15 @@ modulate = Color(1, 1, 1, 0.0784314)
 material = SubResource("CanvasItemMaterial_fsjiq")
 texture = ExtResource("10_bny76")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="NoChrom" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="Inventory" parent="CanvasLayer" instance=ExtResource("11_cgemu")]
+[node name="Inventory" parent="NoChrom" instance=ExtResource("11_cgemu")]
 
-[node name="Pause" parent="CanvasLayer" instance=ExtResource("11_yn7fk")]
+[node name="Chrom" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Pause" parent="Chrom" instance=ExtResource("11_yn7fk")]
 
 [connection signal="got_hit" from="hurtbox" to="." method="hit"]
 [connection signal="timeout" from="gun_anchor/reload_timer" to="gun_anchor" method="_on_reload_timer_timeout"]
