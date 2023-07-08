@@ -4,7 +4,7 @@ class_name Items
 const items = {
 	"Allmighty Orb" : {
 		"stats" : {
-			"damage_per_bullet" : 0.1
+			"damage_per_bullet" : -0.1
 		},
 		"description" : "The more [rainbow]friendly[/rainbow] bullets there are, the more damage you do!"
 	},
@@ -16,7 +16,7 @@ const items = {
 	},
 	"Patient Demise" : {
 		"stats" : {
-			"bullet_slowdown" : 0.5
+			"bullet_slowdown" : -0.5
 		},
 		"description" : "Bullets will [wave]patiently wait[/wave] to hit something instead of going off-screen!"
 	},
@@ -29,10 +29,10 @@ const items = {
 	},
 	"Sniper Scope" : {
 		"stats" : {
-			"bullet_speed" : 2,
-			"spread" : 0.25,
-			"firerate" : 1.5,
-			"damage" : 2
+			"bullet_speed" : 1,
+			"spread" : -0.25,
+			"firerate" : 0.5,
+			"damage" : 1
 		},
 		"description" : "Your shots are more accurate, faster and do more damage, but you shoot much slower..."
 	},
@@ -51,7 +51,7 @@ const items = {
 	},
 	"Big Bullet" : {
 		"stats" : {
-			"bullet_size" : 1.5,
+			"bullet_size" : 0.5,
 			"bullet_speed" : 0.0
 		},
 		"texture" : preload("res://scenes/items/bulletitem.png"),
