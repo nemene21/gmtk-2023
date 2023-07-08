@@ -1,11 +1,109 @@
-[gd_scene load_steps=3 format=3 uid="uid://fw27if7erj28"]
+[gd_scene load_steps=13 format=3 uid="uid://fw27if7erj28"]
 
 [ext_resource type="Script" path="res://scenes/enemies/squid/sprite.gd" id="1_hq503"]
 [ext_resource type="Texture2D" uid="uid://cfgk45upea4j" path="res://scenes/enemies/squid/squid.png" id="1_u6i1l"]
+[ext_resource type="Script" path="res://scenes/enemies/squid/squid_enemy.gd" id="1_vm7fo"]
+[ext_resource type="Shader" path="res://addons/framework/shaders/usable_shaders/flash.gdshader" id="2_4dyrb"]
+[ext_resource type="PackedScene" uid="uid://dq16obamf21gv" path="res://addons/framework/op_nodes/components/flasher.tscn" id="4_2cmrq"]
+[ext_resource type="PackedScene" uid="uid://dy2h01o2ksyes" path="res://addons/framework/op_nodes/components/hurtbox.tscn" id="5_8113n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i2fno"]
+resource_local_to_scene = true
+shader = ExtResource("2_4dyrb")
+shader_parameter/flash = 0.0
+
+[sub_resource type="Animation" id="Animation_6qvuc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_pd3ig"]
+resource_name = "shoot"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(5, 2), Vector2(2, 5), Vector2(3, 3)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shoot"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0f2q8"]
+_data = {
+"RESET": SubResource("Animation_6qvuc"),
+"shoot": SubResource("Animation_pd3ig")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5q1w5"]
+radius = 39.0128
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u4bh2"]
+radius = 33.0
 
 [node name="squid_enemy" type="CharacterBody2D"]
+script = ExtResource("1_vm7fo")
 
 [node name="sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_i2fno")
 scale = Vector2(3, 3)
 texture = ExtResource("1_u6i1l")
 script = ExtResource("1_hq503")
+
+[node name="flasher" parent="sprite" instance=ExtResource("4_2cmrq")]
+
+[node name="barrel" type="Node2D" parent="sprite"]
+position = Vector2(0, 7)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0f2q8")
+}
+
+[node name="hurtbox" parent="." instance=ExtResource("5_8113n")]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+shape = SubResource("CircleShape2D_5q1w5")
+
+[node name="shoot_timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="shoot_delay_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u4bh2")
+
+[connection signal="got_hit" from="hurtbox" to="." method="hit"]
+[connection signal="timeout" from="shoot_timer" to="." method="shoot_start"]
+[connection signal="timeout" from="shoot_delay_timer" to="." method="_on_shoot_delay_timer_timeout"]

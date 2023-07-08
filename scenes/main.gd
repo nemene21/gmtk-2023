@@ -6,9 +6,11 @@ const money_scene := preload("res://scenes/money/money.tscn")
 
 var wave := 1
 var enemies := [
-	preload("res://scenes/enemies/skeleton/skeleton_enemy.tscn")
+	preload("res://scenes/enemies/skeleton/skeleton_enemy.tscn"),
+	preload("res://scenes/enemies/squid/squid_enemy.tscn")
 ]
 var enemy_points := [
+	100,
 	100
 ]
 

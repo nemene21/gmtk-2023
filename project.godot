@@ -27,6 +27,7 @@ PostProcessing="*res://addons/framework/singletons/PostProcessCanvas.tscn"
 
 window/size/viewport_width=960
 window/size/viewport_height=540
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
@@ -35,6 +36,7 @@ enabled=PackedStringArray("res://addons/framework/plugin.cfg")
 
 [gui]
 
+fonts/dynamic_fonts/use_oversampling=false
 theme/custom_font="res://addons/framework/font.ttf"
 
 [input]
