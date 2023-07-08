@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhgo1rjr4bfd"]
+
+[ext_resource type="Texture2D" uid="uid://rw5flsw6u2eo" path="res://scenes/money/currency.png" id="1_gf5ki"]
+[ext_resource type="Script" path="res://scenes/money/money.gd" id="1_p0xhq"]
+
+[node name="money" type="Node2D"]
+script = ExtResource("1_p0xhq")
+
+[node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_gf5ki")

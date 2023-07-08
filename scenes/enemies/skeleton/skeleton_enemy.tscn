@@ -52,4 +52,5 @@ visible = false
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_iln38")
 
+[connection signal="hit_something" from="hitbox" to="." method="hit_player"]
 [connection signal="got_hit" from="hurtbox" to="." method="hit"]

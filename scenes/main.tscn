@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://diq541e3clnxd"]
+[gd_scene load_steps=11 format=3 uid="uid://diq541e3clnxd"]
 
 [ext_resource type="PackedScene" uid="uid://bf8e26542y7vu" path="res://scenes/player/player.tscn" id="1_3v7hw"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_sin0s"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://kf8f2ip2bw4y" path="res://addons/framework/op_nodes/shakeable_camera_2d.tscn" id="2_tvnqt"]
 [ext_resource type="PackedScene" uid="uid://waghafltld3i" path="res://scenes/player/cursor.tscn" id="3_31t07"]
 [ext_resource type="PackedScene" uid="uid://b5qyl46cc4v7y" path="res://scenes/enemies/skeleton/skeleton_enemy.tscn" id="6_2q7r7"]
+[ext_resource type="PackedScene" uid="uid://dhgo1rjr4bfd" path="res://scenes/money/money.tscn" id="7_xeqau"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_11nwr"]
 frequency = 0.03
@@ -62,41 +63,23 @@ position = Vector2(1407, -192)
 [node name="skeleton_enemy3" parent="." instance=ExtResource("6_2q7r7")]
 position = Vector2(-379, -699)
 
-[node name="skeleton_enemy4" parent="." instance=ExtResource("6_2q7r7")]
-position = Vector2(-179, 605)
+[node name="money" parent="." instance=ExtResource("7_xeqau")]
+position = Vector2(55, 80)
 
-[node name="skeleton_enemy5" parent="." instance=ExtResource("6_2q7r7")]
-position = Vector2(1351, 1393)
+[node name="money2" parent="." instance=ExtResource("7_xeqau")]
+position = Vector2(119, 61)
 
-[node name="skeleton_enemy6" parent="." instance=ExtResource("6_2q7r7")]
-position = Vector2(1670, 796)
+[node name="money3" parent="." instance=ExtResource("7_xeqau")]
+position = Vector2(100, 105)
 
-[node name="skeleton_enemy7" parent="." instance=ExtResource("6_2q7r7")]
-position = Vector2(1935, -605)
+[node name="money4" parent="." instance=ExtResource("7_xeqau")]
+position = Vector2(171, 79)
 
-[node name="skeleton_enemy8" parent="." instance=ExtResource("6_2q7r7")]
-position = Vector2(893, -704)
+[node name="money5" parent="." instance=ExtResource("7_xeqau")]
+position = Vector2(132, 140)
 
-[node name="skeleton_enemy9" parent="." instance=ExtResource("6_2q7r7")]
-position = Vector2(-207, -206)
+[node name="money6" parent="." instance=ExtResource("7_xeqau")]
+position = Vector2(64, 172)
 
-[node name="skeleton_enemy10" parent="." instance=ExtResource("6_2q7r7")]
-position = Vector2(-818, 160)
-
-[node name="skeleton_enemy11" parent="." instance=ExtResource("6_2q7r7")]
-position = Vector2(129, 1004)
-
-[node name="skeleton_enemy12" parent="." instance=ExtResource("6_2q7r7")]
-position = Vector2(2818, 21)
-
-[node name="skeleton_enemy13" parent="." instance=ExtResource("6_2q7r7")]
-position = Vector2(1296, 479)
-
-[node name="skeleton_enemy14" parent="." instance=ExtResource("6_2q7r7")]
-position = Vector2(2306, -154)
-
-[node name="skeleton_enemy15" parent="." instance=ExtResource("6_2q7r7")]
-position = Vector2(2620, 582)
-
-[node name="skeleton_enemy16" parent="." instance=ExtResource("6_2q7r7")]
-position = Vector2(2247, 429)
+[node name="money7" parent="." instance=ExtResource("7_xeqau")]
+position = Vector2(64, 172)

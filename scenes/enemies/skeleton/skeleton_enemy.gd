@@ -36,3 +36,10 @@ func hit(attack : Attack):
 		
 	else:
 		flasher.flash()
+
+
+func hit_player():
+	VfxManager.play_vfx("explosion", global_position)
+	VfxManager.play_vfx("real_shockwave", global_position, 0, Vector2(4, 4))
+	Global.player.camera.shake(12, 10, 0.3)
+	queue_free()

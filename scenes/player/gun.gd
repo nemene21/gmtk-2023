@@ -32,7 +32,7 @@ func shoot():
 	var difference : Vector2 = get_global_mouse_position() - global_position
 	var direction  : Vector2 = difference.normalized()
 	
-	player.camera.shake(4, 20, 0.1, direction.angle())
+	player.camera.shake(4, 20, 0.1, direction.angle() / PI * 180)
 	animation_player.play("shoot")
 	VfxManager.play_vfx("player_shoot", barrel.global_position, direction.angle())
 	

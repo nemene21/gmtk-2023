@@ -11,6 +11,8 @@ extends CharacterBody2D
 
 const player_data : PlayerData = preload("res://scenes/player/data.tres")
 
+var money = 0
+
 func _ready() -> void:
 	player_data.add_item("Patient Demise")
 	Global.player = self
