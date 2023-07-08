@@ -162,6 +162,7 @@ script = ExtResource("5_7fbsf")
 layer = 0
 
 [node name="Pause" parent="PauseLayer" instance=ExtResource("12_h8rjd")]
+visible = false
 
 [node name="ui" type="CanvasLayer" parent="."]
 layer = 2

@@ -1,9 +1,10 @@
 extends Resource
 class_name PlayerData
 
-signal added_item
+signal items_changed
 
 var items : Array[String] = ["Sniper Scope", "Big Bullet"]
+var voided_items : Array[String] = []
 
 var default_stats := {
 	"damage_per_bullet" : 0.0,
@@ -32,8 +33,14 @@ var stat_modifiers := {
 }
 
 func add_item(name : String) -> void:
-	emit_signal("added_item")
+	emit_signal("items_changed")
 	items.append(name)
+
+func void_item() -> void:
+	var item_name = items.pop_front()
+	voided_items.append(item_name)
+	emit_signal("items_changed")
+	print(voided_items)
 
 func get_stat_modifier(name : String):
 	assert(name in stat_modifiers.keys())
@@ -51,7 +58,6 @@ func get_stat_modifier(name : String):
 			if not item.stats.has(name):
 				continue
 			value += item.stats[name]
-		print("%s: %d" % [name, value])
 	
 	return value
 

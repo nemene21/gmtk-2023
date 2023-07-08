@@ -6,7 +6,7 @@ var player_data = preload("res://scenes/player/data.tres")
 @onready var item_display := $Margin/Items
 
 func _ready() -> void:
-	player_data.connect("added_item", Callable(self, "display_items"))
+	player_data.connect("items_changed", Callable(self, "display_items"))
 	display_items()
 
 func display_items() -> void:

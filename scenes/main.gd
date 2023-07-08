@@ -50,6 +50,11 @@ func new_wave():
 			points -= cost
 			
 	wave += 1
+	
+	# Remove an item from the player every 3 waves
+	if wave % 3 == 0:
+		var player_data = Global.player.player_data
+		player_data.void_item()
 
 
 func _input(event: InputEvent) -> void:
