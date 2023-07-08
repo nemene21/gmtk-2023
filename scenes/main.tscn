@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cqorgqbf84ipi"]
+[gd_scene load_steps=19 format=3 uid="uid://cqorgqbf84ipi"]
 
 [ext_resource type="PackedScene" uid="uid://bf8e26542y7vu" path="res://scenes/player/player.tscn" id="1_3v7hw"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_sin0s"]
@@ -91,6 +91,46 @@ _data = {
 "in": SubResource("Animation_6unpq")
 }
 
+[sub_resource type="Animation" id="Animation_v2hhn"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(480, -270), Vector2(480, 270)]
+}
+
+[sub_resource type="Animation" id="Animation_xwioq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(480, 270)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qt0w6"]
+_data = {
+"RESET": SubResource("Animation_xwioq"),
+"start": SubResource("Animation_v2hhn")
+}
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_uluik"]
+a = Vector2(0.999961, -888)
+b = Vector2(2.00001, 329)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_sin0s")
 
@@ -133,6 +173,7 @@ position = Vector2(174, 500)
 position = Vector2(242, 500)
 
 [node name="cursor" parent="ui" instance=ExtResource("3_31t07")]
+position = Vector2(-193, -201)
 
 [node name="fps_counter" type="Label" parent="ui"]
 offset_right = 40.0
@@ -143,6 +184,33 @@ autoplay = "in"
 libraries = {
 "": SubResource("AnimationLibrary_udtif")
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "start"
+libraries = {
+"": SubResource("AnimationLibrary_qt0w6")
+}
+
+[node name="border" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border"]
+position = Vector2(0, 139)
+shape = SubResource("SegmentShape2D_uluik")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="border"]
+position = Vector2(180, -1)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_uluik")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="border"]
+position = Vector2(960, 221)
+rotation = 3.14159
+shape = SubResource("SegmentShape2D_uluik")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="border"]
+position = Vector2(847, 540)
+rotation = 4.71239
+shape = SubResource("SegmentShape2D_uluik")
 
 [connection signal="gain_money" from="Player" to="ui/ui_money" method="_on_player_gain_money"]
 [connection signal="player_hit" from="Player" to="ui/hp_ui" method="player_hit"]

@@ -17,6 +17,7 @@ var enemy_count := 0
 func _ready():
 	VfxManager.set_target(self)
 	new_wave()
+	camera.shake(16, 15, 1)
 
 func spawn_money(amount : int, money_position : Vector2) -> void:
 	for i in amount:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3]
+[gd_scene load_steps=13 format=3 uid="uid://d2n77742hgc08"]
 
 [ext_resource type="Script" path="res://addons/framework/op_nodes/vfx/scripts/post_processing_layer.gd" id="1_uvnqh"]
 [ext_resource type="Shader" path="res://addons/framework/shaders/post_processing.gdshader" id="2_wu3av"]
@@ -20,7 +20,7 @@ shader_parameter/vignette_noise_warp_speed = 0.0
 shader_parameter/centre = Vector2(0.5, 0.5)
 shader_parameter/distance_pow = 5.0
 shader_parameter/distance_multiplyer = 4.0
-shader_parameter/chromatic_abberation = 0.25
+shader_parameter/chromatic_abberation = 0.35
 shader_parameter/res = Vector2(320, 180)
 shader_parameter/warp = 0.4
 shader_parameter/vignette_noise = SubResource("NoiseTexture2D_0uhnf")
@@ -29,7 +29,7 @@ shader_parameter/vignette_noise = SubResource("NoiseTexture2D_0uhnf")
 shader = ExtResource("3_1cd0b")
 shader_parameter/animation = 0.0
 shader_parameter/offset = null
-shader_parameter/res = Vector2(1024, 600)
+shader_parameter/res = Vector2(320, 180)
 
 [sub_resource type="Animation" id="Animation_s1h7b"]
 length = 0.001

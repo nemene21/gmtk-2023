@@ -10,3 +10,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("space"):
 		PostProcessing.transition_scene("res://scenes/main.tscn")
+	
+	$player.rotation += delta * 2
+	$gun.rotation += delta * 2
+	$jetpack.rotation += delta * 2

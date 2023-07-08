@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://exagplug8xxb"]
+[gd_scene load_steps=9 format=3 uid="uid://exagplug8xxb"]
 
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_rm8qn"]
 [ext_resource type="Shader" path="res://scenes/background.gdshader" id="1_shqhr"]
+[ext_resource type="Texture2D" uid="uid://dxogjseo5k033" path="res://scenes/player/coolwizardguy.png" id="3_diy30"]
+[ext_resource type="Texture2D" uid="uid://bghhwl0nf8gcq" path="res://scenes/player/jetpack.png" id="4_wxqbm"]
+[ext_resource type="Texture2D" uid="uid://ci632ct5rjnod" path="res://scenes/player/ak.png" id="5_2cfsb"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i2612"]
 frequency = 0.03
@@ -28,12 +31,12 @@ shader_parameter/noise = SubResource("NoiseTexture2D_itgfd")
 script = ExtResource("1_rm8qn")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 173.0
-offset_top = 38.0
-offset_right = 401.0
-offset_bottom = 209.0
+offset_left = 32.0
+offset_top = 20.0
+offset_right = 536.0
+offset_bottom = 191.0
 theme_override_font_sizes/font_size = 96
-text = "title"
+text = "Abyssus"
 
 [node name="bg_layer" type="CanvasLayer" parent="."]
 layer = -1
@@ -46,7 +49,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="press_space" type="RichTextLabel" parent="."]
 offset_left = 173.0
 offset_top = 220.0
 offset_right = 512.0
@@ -54,3 +57,30 @@ offset_bottom = 314.0
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "[wave amp=50]press space to continue[/wave]"
+
+[node name="press_space2" type="RichTextLabel" parent="."]
+z_index = 1
+clip_contents = false
+offset_left = 645.0
+offset_top = 317.0
+offset_right = 984.0
+offset_bottom = 411.0
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[wave amp=150 freq=20]WAAAAAAAAA[/wave]"
+
+[node name="player" type="Sprite2D" parent="."]
+position = Vector2(626, 335)
+scale = Vector2(4, 4)
+texture = ExtResource("3_diy30")
+
+[node name="gun" type="Sprite2D" parent="."]
+position = Vector2(816, 284)
+scale = Vector2(4, 4)
+texture = ExtResource("5_2cfsb")
+
+[node name="jetpack" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(760, 393)
+scale = Vector2(4, 4)
+texture = ExtResource("4_wxqbm")
