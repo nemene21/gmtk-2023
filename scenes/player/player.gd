@@ -13,6 +13,7 @@ const player_data : PlayerData = preload("res://scenes/player/data.tres")
 
 var money := 0
 var hp := 4
+var i_frames := .0
 signal gain_money
 signal player_hit
 
@@ -21,6 +22,8 @@ func _ready() -> void:
 	Global.player = self
 
 func _process(delta : float) -> void:
+	i_frames -= delta
+	
 	var input : Vector2 = Input.get_vector("left", "right", "up", "down")
 	input = input.normalized()
 	
@@ -36,8 +39,15 @@ func _process(delta : float) -> void:
 	body_sprite.scale.x = lerp(body_sprite.scale.x, (float(mouse_right) * 2 - 1) * 3, delta * 20)
 	
 	body_sprite.rotation_degrees = velocity.x / speed * 33
+	
+	# i frame animation
+	
 
 func hit(attack : Attack):
+	if i_frames > 0: return
+	
+	i_frames = 0.5
+	
 	flasher.flash()
 	create_tween().tween_method(set_vignette_color, Color(1, 0, 0), Color(0, 0, 0), 0.33)
 	hp -= 1

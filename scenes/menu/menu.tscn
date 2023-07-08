@@ -32,7 +32,7 @@ shader_parameter/noise = SubResource("NoiseTexture2D_itgfd")
 script = ExtResource("1_rm8qn")
 
 [node name="Title" type="Sprite2D" parent="."]
-position = Vector2(279, 180)
+position = Vector2(212, 170)
 scale = Vector2(3, 3)
 texture = ExtResource("2_wy2yy")
 
@@ -48,24 +48,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="press_space" type="RichTextLabel" parent="."]
-offset_left = 193.0
-offset_top = 391.0
-offset_right = 532.0
-offset_bottom = 485.0
+offset_left = 116.0
+offset_top = 416.0
+offset_right = 455.0
+offset_bottom = 510.0
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "[wave amp=50]press space to continue[/wave]"
-
-[node name="waaaa" type="RichTextLabel" parent="."]
-z_index = 1
-clip_contents = false
-offset_left = 645.0
-offset_top = 317.0
-offset_right = 984.0
-offset_bottom = 411.0
-theme_override_font_sizes/normal_font_size = 24
-bbcode_enabled = true
-text = "[wave amp=150 freq=10]WAAAAAAAAA[/wave]"
 
 [node name="player" type="Sprite2D" parent="."]
 position = Vector2(626, 335)
@@ -82,3 +71,13 @@ show_behind_parent = true
 position = Vector2(760, 393)
 scale = Vector2(4, 4)
 texture = ExtResource("4_wxqbm")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0.560784, 0.560784, 0.560784, 1)
+offset_left = 116.0
+offset_top = 300.0
+offset_right = 537.0
+offset_bottom = 390.0
+theme_override_font_sizes/font_size = 24
+text = "WASD or ARROWS to move, LEFT MOUSE CLICK to shoot"
+autowrap_mode = 2

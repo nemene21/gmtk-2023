@@ -31,7 +31,7 @@ void fragment() {
 	dist = pow(dist, distance_pow) * distance_multiplyer;
 	
 	float chromatic_dist = distance(uv, centre) * 2.0;
-	chromatic_dist = pow(chromatic_dist, 6.0) * chromatic_abberation;
+	chromatic_dist = pow(chromatic_dist, 8.0) * chromatic_abberation;
 	
 	// Get on screen pixel color (pixel.r and pixel.b are offset due to chromatic abberation)
 	vec2 snap = 1.0 / res;
