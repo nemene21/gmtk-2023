@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://hgkrost36ebm"]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Shader" path="res://addons/framework/shaders/realistic_shockwave.gdshader" id="1_7jku4"]
-[ext_resource type="Script" path="res://addons/framework/scripts/node_scripts/center_ui.gd" id="2_gaxeq"]
+[ext_resource type="Script" path="res://addons/framework/op_nodes/vfx/scripts/node_scripts/center_ui.gd" id="2_gaxeq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2gciq"]
 resource_local_to_scene = true

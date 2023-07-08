@@ -17,10 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-AudioManager="*res://addons/framework/scripts/audio_manager.gd"
-VfxManager="*res://addons/framework/scripts/vfx_manager.gd"
+AudioManager="*res://addons/framework/op_nodes/vfx/scripts/audio_manager.gd"
+VfxManager="*res://addons/framework/op_nodes/vfx/scripts/vfx_manager.gd"
 Global="*res://addons/framework/singletons/Global.tscn"
-Random="*res://addons/framework/scripts/random.gd"
+Random="*res://addons/framework/op_nodes/vfx/scripts/random.gd"
 PostProcessing="*res://addons/framework/singletons/PostProcessCanvas.tscn"
 
 [display]

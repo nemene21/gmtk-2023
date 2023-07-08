@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bf8e26542y7vu" path="res://scenes/player/player.tscn" id="1_3v7hw"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_sin0s"]
 [ext_resource type="Shader" path="res://scenes/background.gdshader" id="2_4dqtd"]
-[ext_resource type="PackedScene" uid="uid://kf8f2ip2bw4y" path="res://addons/framework/op_nodes/shakeable_camera_2d.tscn" id="2_tvnqt"]
+[ext_resource type="PackedScene" path="res://addons/framework/op_nodes/shakeable_camera_2d.tscn" id="2_tvnqt"]
 [ext_resource type="PackedScene" uid="uid://b2n52uwkxj2f" path="res://scenes/player/ui/cursor.tscn" id="3_31t07"]
 [ext_resource type="PackedScene" uid="uid://l3hlemagoo6y" path="res://scenes/player/ui/ui_heart.tscn" id="5_7vn35"]
 [ext_resource type="PackedScene" uid="uid://dtwuvcg7mhsq5" path="res://scenes/player/ui/ui_money.tscn" id="5_puuvu"]

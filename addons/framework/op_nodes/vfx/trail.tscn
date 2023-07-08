@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://xokn7fbeo8l8"]
 
-[ext_resource type="Script" path="res://addons/framework/scripts/node_scripts/trail.gd" id="1_e16gy"]
+[ext_resource type="Script" path="res://addons/framework/op_nodes/vfx/scripts/node_scripts/trail.gd" id="1_851hg"]
 
 [sub_resource type="Curve" id="Curve_kgg3f"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.907217, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -14,5 +14,5 @@ show_behind_parent = true
 width = 24.0
 width_curve = SubResource("Curve_kgg3f")
 gradient = SubResource("Gradient_qr1c0")
-script = ExtResource("1_e16gy")
+script = ExtResource("1_851hg")
 length = 8

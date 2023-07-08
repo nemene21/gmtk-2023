@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhgo1rjr4bfd"]
+[gd_scene load_steps=6 format=3 uid="uid://dhgo1rjr4bfd"]
 
-[ext_resource type="Texture2D" uid="uid://rw5flsw6u2eo" path="res://scenes/money/currency.png" id="1_gf5ki"]
 [ext_resource type="Script" path="res://scenes/money/money.gd" id="1_p0xhq"]
 [ext_resource type="Shader" path="res://addons/framework/shaders/usable_shaders/shine.gdshader" id="2_6jevl"]
+[ext_resource type="Texture2D" uid="uid://bc04ndo4pqe2f" path="res://scenes/money/smallcurrency.png" id="3_txcy0"]
+[ext_resource type="PackedScene" uid="uid://xokn7fbeo8l8" path="res://addons/framework/op_nodes/vfx/trail.tscn" id="4_fvqaf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j3d0r"]
 shader = ExtResource("2_6jevl")
@@ -10,9 +11,16 @@ shader_parameter/shine_color = Color(1, 1, 1, 1)
 shader_parameter/speed = 3.0
 
 [node name="money" type="Node2D"]
+z_index = 1
 script = ExtResource("1_p0xhq")
 
 [node name="sprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_j3d0r")
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_gf5ki")
+scale = Vector2(3, 3)
+texture = ExtResource("3_txcy0")
+
+[node name="Trail" parent="." instance=ExtResource("4_fvqaf")]
+width = 12.0
+default_color = Color(0.407843, 0.682353, 0.831373, 1)
+gradient = null
+length = 6

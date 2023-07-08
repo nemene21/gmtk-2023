@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://b3f711xhh3loa"]
+[gd_scene load_steps=13 format=3]
 
-[ext_resource type="Script" path="res://addons/framework/scripts/post_processing_layer.gd" id="1_uvnqh"]
+[ext_resource type="Script" path="res://addons/framework/op_nodes/vfx/scripts/post_processing_layer.gd" id="1_uvnqh"]
 [ext_resource type="Shader" path="res://addons/framework/shaders/post_processing.gdshader" id="2_wu3av"]
 [ext_resource type="Shader" path="res://addons/framework/singletons/transition_shader.gdshader" id="3_1cd0b"]
 [ext_resource type="Texture2D" uid="uid://bxgepq8t42884" path="res://addons/framework/singletons/transition_textures/star.png" id="4_e57c8"]

@@ -7,7 +7,7 @@ func _process(delta):
 	if global_position.distance_to(Global.player.global_position) < 128 and !tagged:
 		tagged = true
 		
-	if global_position.distance_to(Global.player.global_position) < 32:
+	if global_position.distance_to(Global.player.global_position) < 16:
 		Global.player.money += 10
 		Global.player.emit_signal("gain_money", Global.player.money)
 		queue_free()
