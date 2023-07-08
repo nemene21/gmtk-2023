@@ -41,7 +41,7 @@ func _process(delta : float) -> void:
 	body_sprite.rotation_degrees = velocity.x / speed * 33
 	
 	# i frame animation
-	body_sprite.modulate.a = round(abs(cos(max(0, i_frames) * PI * 6)))
+	body_sprite.modulate.a = round(abs(cos(max(0, i_frames) * PI * 8)))
 
 func hit(attack : Attack):
 	if i_frames > 0: return
