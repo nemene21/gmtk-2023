@@ -6,26 +6,26 @@ const items = {
 		"stats" : {
 			"damage_per_bullet" : 0.1
 		},
-		"description" : "The more friendly bullets there are, the more damage you do!"
+		"description" : "The more [rainbow]friendly[/rainbow] bullets there are, the more damage you do!"
 	},
 	"Bouncy Substance" : {
 		"stats" : {
 			"bullet_bounce" : 1
 		},
-		"description" : "Your bullets bounce off the screen's edges!"
+		"description" : "Your bullets [wave]bounce[/wave] off the screen's edges!"
 	},
 	"Patient Demise" : {
 		"stats" : {
 			"bullet_slowdown" : 0.5
 		},
-		"description" : "Bullets will patiently wait to hit something instead of going off-screen!"
+		"description" : "Bullets will [wave]patiently wait[/wave] to hit something instead of going off-screen!"
 	},
 	"Silly Shells" : {
 		"stats" : {
 			"bullet_amount" : 2,
 			"spread" : 33
 		},
-		"description" : "You shoot 2 more bullets but lose accuracy..."
+		"description" : "You shoot two more bullets but lose accuracy..."
 	},
 	"Sniper Scope" : {
 		"stats" : {
@@ -40,14 +40,14 @@ const items = {
 		"stats" : {
 			"double_damage_when_1hp" : 1
 		},
-		"description" : "The adrenaline makes you do double damage when on 1 HP!?"
+		"description" : "The adrenaline makes you do [wave]double damage[/wave] when on 1 HP!?"
 	},
 	"Sharp Nail" : {
 		"stats" : {
 			"piercing" : 1
 		},
 		"texture" : preload("res://scenes/items/nailitem.png"),
-		"description" : "Bullets pierce trough an additional enemy (ouch)"
+		"description" : "Bullets [shake]pierce[/shake] trough an additional enemy (ouch)"
 	},
 	"Big Bullet" : {
 		"stats" : {
@@ -55,7 +55,7 @@ const items = {
 			"bullet_speed" : 0.0
 		},
 		"texture" : preload("res://scenes/items/bulletitem.png"),
-		"description" : "Bullets are larger, but slower..."
+		"description" : "Bullets are [shake]larger[/shake], but slower..."
 	}
 }
 
