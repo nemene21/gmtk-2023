@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://cqorgqbf84ipi"]
+[gd_scene load_steps=20 format=3 uid="uid://diq541e3clnxd"]
 
 [ext_resource type="PackedScene" uid="uid://bf8e26542y7vu" path="res://scenes/player/player.tscn" id="1_3v7hw"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_sin0s"]
 [ext_resource type="Shader" path="res://scenes/background.gdshader" id="2_4dqtd"]
 [ext_resource type="PackedScene" path="res://addons/framework/op_nodes/shakeable_camera_2d.tscn" id="2_tvnqt"]
 [ext_resource type="PackedScene" uid="uid://b2n52uwkxj2f" path="res://scenes/player/ui/cursor.tscn" id="3_31t07"]
+[ext_resource type="Script" path="res://scenes/bg.gd" id="5_7fbsf"]
 [ext_resource type="PackedScene" uid="uid://l3hlemagoo6y" path="res://scenes/player/ui/ui_heart.tscn" id="5_7vn35"]
 [ext_resource type="PackedScene" uid="uid://dtwuvcg7mhsq5" path="res://scenes/player/ui/ui_money.tscn" id="5_puuvu"]
 [ext_resource type="Script" path="res://scenes/player/ui/hp_ui_container.gd" id="6_07q76"]
@@ -29,6 +30,33 @@ shader_parameter/stripes = 8.0
 shader_parameter/stripe_curve = 15.0
 shader_parameter/spin_speed = 0.35
 shader_parameter/noise = SubResource("NoiseTexture2D_bi756")
+
+[sub_resource type="Animation" id="Animation_e2eeh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hp_ui:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ui_money:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(36, 401)]
+}
 
 [sub_resource type="Animation" id="Animation_6unpq"]
 resource_name = "in"
@@ -58,52 +86,10 @@ tracks/1/keys = {
 "values": [Vector2(-199, 401), Vector2(36, 401)]
 }
 
-[sub_resource type="Animation" id="Animation_e2eeh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("hp_ui:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ui_money:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(36, 401)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_udtif"]
 _data = {
 "RESET": SubResource("Animation_e2eeh"),
 "in": SubResource("Animation_6unpq")
-}
-
-[sub_resource type="Animation" id="Animation_v2hhn"]
-resource_name = "start"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("camera:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [Vector2(480, -270), Vector2(480, 270)]
 }
 
 [sub_resource type="Animation" id="Animation_xwioq"]
@@ -119,6 +105,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(480, 270)]
+}
+
+[sub_resource type="Animation" id="Animation_v2hhn"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(480, -270), Vector2(480, 270)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qt0w6"]
@@ -150,6 +151,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("5_7fbsf")
 
 [node name="ui" type="CanvasLayer" parent="."]
 layer = 2
