@@ -3,9 +3,11 @@ extends CharacterBody2D
 @onready var sprite := $sprite
 @onready var hitbox := $hitbox
 
+@export var damage := 1
+
 func _ready():
 	hitbox.attack = Attack.new()
-	hitbox.attack.damage = 1
+	hitbox.attack.damage = damage
 	hitbox.attack.knockback = velocity * 0.2
 
 func _physics_process(delta):

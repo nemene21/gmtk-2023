@@ -27,7 +27,6 @@ func shoot():
 	emit_signal("shot")
 	
 	reloaded = false
-	reload_timer.start()
 	
 	var difference : Vector2 = get_global_mouse_position() - global_position
 	var direction  : Vector2 = difference.normalized()
@@ -36,11 +35,20 @@ func shoot():
 	animation_player.play("shoot")
 	VfxManager.play_vfx("player_shoot", barrel.global_position, direction.angle())
 	
+	var default_stats = player.player_data.default_stats
+	var bullet_speed = player.player_data.get_stat_percentage("bullet_speed")
+	var spread = deg_to_rad(player.player_data.get_stat_percentage("spread"))
+	var firerate = player.player_data.get_stat_percentage("firerate")
+	var damage = player.player_data.get_stat_percentage("damage")
+	
 	var bullet := bullet_scene.instantiate()
 	bullet.global_position = barrel.global_position
-	bullet.velocity = direction.rotated(randf_range(-0.08, 0.08)) * 1000
+	bullet.velocity = direction.rotated(randf_range(-spread, spread)) * bullet_speed
+	bullet.damage = damage
 	
-	player.get_parent().add_child(bullet)
+	reload_timer.start(firerate)
+	
+	player.add_sibling(bullet)
 
 func _on_reload_timer_timeout():
 	reloaded = true
