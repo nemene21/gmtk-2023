@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bf8e26542y7vu"]
+[gd_scene load_steps=26 format=3 uid="uid://bf8e26542y7vu"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_8vl52"]
 [ext_resource type="Shader" path="res://addons/framework/shaders/usable_shaders/flash.gdshader" id="2_551xo"]
@@ -10,8 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://ci632ct5rjnod" path="res://scenes/player/ak.png" id="7_fqkw5"]
 [ext_resource type="Script" path="res://scenes/player/gun.gd" id="7_q4ltt"]
 [ext_resource type="Texture2D" uid="uid://dx8xe6snbahg1" path="res://scenes/vfx/light.png" id="10_bny76"]
-[ext_resource type="PackedScene" uid="uid://m4y7csfhn0ew" path="res://scenes/inventory.tscn" id="11_cgemu"]
-[ext_resource type="PackedScene" uid="uid://fgs338ss8al" path="res://scenes/pause/pause.tscn" id="11_yn7fk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q56ux"]
 shader = ExtResource("2_551xo")
@@ -311,16 +309,6 @@ libraries = {
 modulate = Color(1, 1, 1, 0.0784314)
 material = SubResource("CanvasItemMaterial_fsjiq")
 texture = ExtResource("10_bny76")
-
-[node name="NoChrom" type="CanvasLayer" parent="."]
-layer = 2
-
-[node name="Inventory" parent="NoChrom" instance=ExtResource("11_cgemu")]
-
-[node name="Chrom" type="CanvasLayer" parent="."]
-layer = 0
-
-[node name="Pause" parent="Chrom" instance=ExtResource("11_yn7fk")]
 
 [connection signal="got_hit" from="hurtbox" to="." method="hit"]
 [connection signal="timeout" from="gun_anchor/reload_timer" to="gun_anchor" method="_on_reload_timer_timeout"]
