@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://fgs338ss8al"]
+
+[ext_resource type="Script" path="res://scenes/pause/pause.gd" id="1_q3si4"]
+[ext_resource type="Texture2D" uid="uid://cobqh3d133uds" path="res://scenes/menu/title.png" id="2_vycw6"]
+
+[node name="Pause" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q3si4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(192, 192)
+layout_mode = 2
+texture = ExtResource("2_vycw6")
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center][wave amp=50]paused
+press escape to continue
+[/wave][center]"
+fit_content = true

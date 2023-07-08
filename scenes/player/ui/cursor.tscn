@@ -65,6 +65,7 @@ _data = {
 }
 
 [node name="cursor" type="Sprite2D"]
+process_mode = 3
 rotation = 1.5708
 scale = Vector2(3, 3)
 texture = ExtResource("1_3pvuv")
