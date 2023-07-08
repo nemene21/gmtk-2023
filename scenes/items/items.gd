@@ -41,6 +41,21 @@ const items = {
 			"double_damage_when_1hp" : 1
 		},
 		"description" : "The adrenaline makes you do double damage when on 1 HP!?"
+	},
+	"Sharp Nail" : {
+		"stats" : {
+			"piercing" : 1
+		},
+		"texture" : preload("res://scenes/items/nailitem.png"),
+		"description" : "Bullets pierce trough an additional enemy (ouch)"
+	},
+	"Big Bullet" : {
+		"stats" : {
+			"bullet_size" : 1.5,
+			"bullet_speed" : 0.0
+		},
+		"texture" : preload("res://scenes/items/bulletitem.png"),
+		"description" : "Bullets are larger, but slower..."
 	}
 }
 

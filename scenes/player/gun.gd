@@ -40,11 +40,13 @@ func shoot():
 	var spread = deg_to_rad(player.player_data.get_stat_percentage("spread"))
 	var firerate = player.player_data.get_stat_percentage("firerate")
 	var damage = player.player_data.get_stat_percentage("damage")
+	var size = player.player_data.get_stat_percentage("bullet_size")
 	
 	var bullet := bullet_scene.instantiate()
 	bullet.global_position = barrel.global_position
 	bullet.velocity = direction.rotated(randf_range(-spread, spread)) * bullet_speed
 	bullet.damage = damage
+	bullet.scale = Vector2(size, size)
 	
 	reload_timer.start(firerate)
 	

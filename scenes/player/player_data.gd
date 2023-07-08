@@ -1,7 +1,7 @@
 extends Resource
 class_name PlayerData
 
-var items : Array[String] = ["Sniper Scope"]
+var items : Array[String] = ["Big Bullet"]
 
 var default_stats := {
 	"damage_per_bullet" : 0.0,
@@ -12,6 +12,7 @@ var default_stats := {
 	"bullet_speed" : 1000.0,
 	"firerate" : 0.2,
 	"spread" : 0.0,
+	"bullet_size" : 1.0,
 }
 
 var stat_modifiers := {
@@ -23,6 +24,7 @@ var stat_modifiers := {
 	"bullet_speed" : 1.0,
 	"firerate" : 1.0,
 	"spread" : 0.0,
+	"bullet_size" : .0,
 }
 
 func add_item(name : String) -> void:
