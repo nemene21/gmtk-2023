@@ -5,8 +5,8 @@
 
 [sub_resource type="Gradient" id="Gradient_hcspt"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.340741, 0.688889)
-colors = PackedColorArray(1, 0.7, 0, 1, 0.552956, 0.552956, 0.552956, 1, 0.368627, 0.368627, 0.368627, 0.501961)
+offsets = PackedFloat32Array(0, 0.362963, 0.666667)
+colors = PackedColorArray(1, 0.819608, 0, 1, 1, 0.517647, 0.14902, 1, 0.412153, 0.412152, 0.412152, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_t4r7u"]
 gradient = SubResource("Gradient_hcspt")
@@ -55,6 +55,7 @@ scale_max = 5.0
 scale_curve = SubResource("CurveTexture_ln41a")
 
 [node name="explode" type="GPUParticles2D"]
+emitting = false
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_u6kk1")
 texture = ExtResource("1_ylaow")

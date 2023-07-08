@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://l3hlemagoo6y"]
+
+[ext_resource type="Script" path="res://scenes/player/ui/ui_heart.gd" id="1_c80k7"]
+[ext_resource type="Texture2D" uid="uid://27n2vp5nbagj" path="res://scenes/player/ui/ui_heart.png" id="2_sxn0y"]
+
+[node name="ui_heart" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_c80k7")
+
+[node name="shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0.180392, 0.380392)
+texture = ExtResource("2_sxn0y")
+
+[node name="heart" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+texture = ExtResource("2_sxn0y")

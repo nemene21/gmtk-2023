@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtwuvcg7mhsq5"]
+
+[ext_resource type="Script" path="res://scenes/player/ui/ui_money.gd" id="1_lwsax"]
+[ext_resource type="Texture2D" uid="uid://rw5flsw6u2eo" path="res://scenes/money/currency.png" id="1_trc7o"]
+
+[node name="ui_money" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_lwsax")
+
+[node name="shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.501961)
+texture = ExtResource("1_trc7o")
+
+[node name="money" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+texture = ExtResource("1_trc7o")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 16.0
+offset_top = -20.0
+offset_right = 73.0
+offset_bottom = 11.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.501961)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/line_spacing = 0
+text = "0
+"

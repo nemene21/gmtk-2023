@@ -1,12 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://diq541e3clnxd"]
+[gd_scene load_steps=11 format=3 uid="uid://cqorgqbf84ipi"]
 
 [ext_resource type="PackedScene" uid="uid://bf8e26542y7vu" path="res://scenes/player/player.tscn" id="1_3v7hw"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_sin0s"]
 [ext_resource type="Shader" path="res://scenes/background.gdshader" id="2_4dqtd"]
 [ext_resource type="PackedScene" uid="uid://kf8f2ip2bw4y" path="res://addons/framework/op_nodes/shakeable_camera_2d.tscn" id="2_tvnqt"]
-[ext_resource type="PackedScene" uid="uid://waghafltld3i" path="res://scenes/player/cursor.tscn" id="3_31t07"]
-[ext_resource type="PackedScene" uid="uid://b5qyl46cc4v7y" path="res://scenes/enemies/skeleton/skeleton_enemy.tscn" id="6_2q7r7"]
-[ext_resource type="PackedScene" uid="uid://dhgo1rjr4bfd" path="res://scenes/money/money.tscn" id="7_xeqau"]
+[ext_resource type="PackedScene" uid="uid://b2n52uwkxj2f" path="res://scenes/player/ui/cursor.tscn" id="3_31t07"]
+[ext_resource type="PackedScene" uid="uid://l3hlemagoo6y" path="res://scenes/player/ui/ui_heart.tscn" id="5_7vn35"]
+[ext_resource type="PackedScene" uid="uid://dtwuvcg7mhsq5" path="res://scenes/player/ui/ui_money.tscn" id="5_puuvu"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_11nwr"]
 frequency = 0.03
@@ -32,11 +32,11 @@ shader_parameter/noise = SubResource("NoiseTexture2D_itgfd")
 [node name="Main" type="Node2D"]
 script = ExtResource("1_sin0s")
 
+[node name="Player" parent="." instance=ExtResource("1_3v7hw")]
+position = Vector2(486, 270)
+
 [node name="camera" parent="." instance=ExtResource("2_tvnqt")]
 position = Vector2(480, 270)
-
-[node name="Player" parent="." instance=ExtResource("1_3v7hw")]
-position = Vector2(482, 288)
 
 [node name="bg_layer" type="CanvasLayer" parent="."]
 layer = -1
@@ -52,34 +52,27 @@ grow_vertical = 2
 [node name="ui" type="CanvasLayer" parent="."]
 layer = 2
 
+[node name="ui_money" parent="ui" instance=ExtResource("5_puuvu")]
+position = Vector2(36, 401)
+
+[node name="hp_ui" type="Node2D" parent="ui"]
+
+[node name="ui_heart" parent="ui/hp_ui" instance=ExtResource("5_7vn35")]
+position = Vector2(40, 500)
+
+[node name="ui_heart2" parent="ui/hp_ui" instance=ExtResource("5_7vn35")]
+position = Vector2(108, 500)
+
+[node name="ui_heart3" parent="ui/hp_ui" instance=ExtResource("5_7vn35")]
+position = Vector2(174, 500)
+
+[node name="ui_heart4" parent="ui/hp_ui" instance=ExtResource("5_7vn35")]
+position = Vector2(242, 500)
+
 [node name="cursor" parent="ui" instance=ExtResource("3_31t07")]
 
-[node name="skeleton_enemy" parent="." instance=ExtResource("6_2q7r7")]
-position = Vector2(816, 300)
+[node name="fps_counter" type="Label" parent="ui"]
+offset_right = 40.0
+offset_bottom = 22.0
 
-[node name="skeleton_enemy2" parent="." instance=ExtResource("6_2q7r7")]
-position = Vector2(1407, -192)
-
-[node name="skeleton_enemy3" parent="." instance=ExtResource("6_2q7r7")]
-position = Vector2(-379, -699)
-
-[node name="money" parent="." instance=ExtResource("7_xeqau")]
-position = Vector2(55, 80)
-
-[node name="money2" parent="." instance=ExtResource("7_xeqau")]
-position = Vector2(119, 61)
-
-[node name="money3" parent="." instance=ExtResource("7_xeqau")]
-position = Vector2(100, 105)
-
-[node name="money4" parent="." instance=ExtResource("7_xeqau")]
-position = Vector2(171, 79)
-
-[node name="money5" parent="." instance=ExtResource("7_xeqau")]
-position = Vector2(132, 140)
-
-[node name="money6" parent="." instance=ExtResource("7_xeqau")]
-position = Vector2(64, 172)
-
-[node name="money7" parent="." instance=ExtResource("7_xeqau")]
-position = Vector2(64, 172)
+[connection signal="gain_money" from="Player" to="ui/ui_money" method="_on_player_gain_money"]

@@ -34,6 +34,10 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/framework/plugin.cfg")
 
+[gui]
+
+theme/custom_font="res://addons/framework/font.ttf"
+
 [input]
 
 up={

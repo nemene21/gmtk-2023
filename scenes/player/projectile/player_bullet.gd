@@ -14,5 +14,4 @@ func _physics_process(delta):
 
 func _on_hitbox_hit_something():
 	queue_free()
-	VfxManager.play_vfx("real_shockwave", global_position, 0, Vector2(0.66, 0.66))
 	VfxManager.play_vfx("enemy_hit", global_position, PI + velocity.angle())
