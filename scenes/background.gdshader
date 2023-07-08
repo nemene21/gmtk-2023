@@ -40,4 +40,5 @@ void fragment() {
 	
 	COLOR.rgb = mix(COLOR.rgb, dark_color * 0.6, float(dist < hole_size * 0.75 * size_displacement));
 	COLOR.rgb *= 1.0 - float(dist < hole_size * 0.5 * size_displacement) * 0.4;
+	COLOR.rgb *= 1.0 - float(dist / 2.0);
 }
