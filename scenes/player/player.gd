@@ -11,7 +11,8 @@ extends CharacterBody2D
 
 const player_data : PlayerData = preload("res://scenes/player/data.tres")
 
-var money = 0
+var money := 0
+var hp := 4
 signal gain_money
 signal player_hit
 
@@ -38,3 +39,5 @@ func _process(delta : float) -> void:
 
 func hit(attack : Attack):
 	flasher.flash()
+	hp -= 1
+	emit_signal("player_hit")

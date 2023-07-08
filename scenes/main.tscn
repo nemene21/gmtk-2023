@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqorgqbf84ipi"]
+[gd_scene load_steps=15 format=3 uid="uid://cqorgqbf84ipi"]
 
 [ext_resource type="PackedScene" uid="uid://bf8e26542y7vu" path="res://scenes/player/player.tscn" id="1_3v7hw"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_sin0s"]
@@ -7,12 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://b2n52uwkxj2f" path="res://scenes/player/ui/cursor.tscn" id="3_31t07"]
 [ext_resource type="PackedScene" uid="uid://l3hlemagoo6y" path="res://scenes/player/ui/ui_heart.tscn" id="5_7vn35"]
 [ext_resource type="PackedScene" uid="uid://dtwuvcg7mhsq5" path="res://scenes/player/ui/ui_money.tscn" id="5_puuvu"]
+[ext_resource type="Script" path="res://scenes/player/ui/hp_ui_container.gd" id="6_07q76"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_11nwr"]
 frequency = 0.03
 domain_warp_enabled = true
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_itgfd"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bi756"]
 width = 380
 height = 180
 seamless = true
@@ -27,7 +28,68 @@ shader_parameter/hole_size = 0.169
 shader_parameter/stripes = 8.0
 shader_parameter/stripe_curve = 15.0
 shader_parameter/spin_speed = 0.35
-shader_parameter/noise = SubResource("NoiseTexture2D_itgfd")
+shader_parameter/noise = SubResource("NoiseTexture2D_bi756")
+
+[sub_resource type="Animation" id="Animation_6unpq"]
+resource_name = "in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hp_ui:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 1.3),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, 113), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ui_money:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.3),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(-199, 401), Vector2(36, 401)]
+}
+
+[sub_resource type="Animation" id="Animation_e2eeh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hp_ui:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ui_money:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(36, 401)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_udtif"]
+_data = {
+"RESET": SubResource("Animation_e2eeh"),
+"in": SubResource("Animation_6unpq")
+}
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_sin0s")
@@ -56,6 +118,7 @@ layer = 2
 position = Vector2(36, 401)
 
 [node name="hp_ui" type="Node2D" parent="ui"]
+script = ExtResource("6_07q76")
 
 [node name="ui_heart" parent="ui/hp_ui" instance=ExtResource("5_7vn35")]
 position = Vector2(40, 500)
@@ -75,4 +138,11 @@ position = Vector2(242, 500)
 offset_right = 40.0
 offset_bottom = 22.0
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ui"]
+autoplay = "in"
+libraries = {
+"": SubResource("AnimationLibrary_udtif")
+}
+
 [connection signal="gain_money" from="Player" to="ui/ui_money" method="_on_player_gain_money"]
+[connection signal="player_hit" from="Player" to="ui/hp_ui" method="player_hit"]

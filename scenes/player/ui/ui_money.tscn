@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtwuvcg7mhsq5"]
+[gd_scene load_steps=5 format=3 uid="uid://dtwuvcg7mhsq5"]
 
 [ext_resource type="Script" path="res://scenes/player/ui/ui_money.gd" id="1_lwsax"]
 [ext_resource type="Texture2D" uid="uid://rw5flsw6u2eo" path="res://scenes/money/currency.png" id="1_trc7o"]
+[ext_resource type="Shader" path="res://addons/framework/shaders/usable_shaders/shine.gdshader" id="3_h3hh7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xodqy"]
+resource_local_to_scene = true
+shader = ExtResource("3_h3hh7")
+shader_parameter/shine_color = Color(1, 1, 1, 1)
+shader_parameter/speed = 2.0
+shader_parameter/flash = null
 
 [node name="ui_money" type="Node2D"]
 scale = Vector2(3, 3)
@@ -12,6 +20,7 @@ modulate = Color(0, 0, 0, 0.501961)
 texture = ExtResource("1_trc7o")
 
 [node name="money" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_xodqy")
 position = Vector2(0, -10)
 texture = ExtResource("1_trc7o")
 

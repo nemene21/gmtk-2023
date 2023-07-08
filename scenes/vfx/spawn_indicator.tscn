@@ -131,6 +131,7 @@ _data = {
 }
 
 [node name="spawn_indicator" type="Node2D"]
+z_index = 1
 scale = Vector2(3, 3)
 script = ExtResource("1_ovrol")
 

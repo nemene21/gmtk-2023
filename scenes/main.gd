@@ -41,7 +41,7 @@ func new_wave():
 			enemy.connect("die", enemy_died)
 			enemy_count += 1
 			
-			var indicator = VfxManager.play_vfx("enemy_spawn", enemy.global_position)
+			var indicator = VfxManager.play_vfx("enemy_spawn", enemy.global_position, 0, Vector2(3, 3), 5)
 			indicator.enemy = enemy
 			
 			points -= cost

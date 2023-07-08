@@ -1,7 +1,90 @@
-[gd_scene load_steps=3 format=3 uid="uid://l3hlemagoo6y"]
+[gd_scene load_steps=9 format=3 uid="uid://l3hlemagoo6y"]
 
 [ext_resource type="Script" path="res://scenes/player/ui/ui_heart.gd" id="1_c80k7"]
 [ext_resource type="Texture2D" uid="uid://dac53xuqsk80h" path="res://scenes/player/ui/ui_heartheart.png" id="2_204c0"]
+[ext_resource type="PackedScene" uid="uid://dq16obamf21gv" path="res://addons/framework/op_nodes/components/flasher.tscn" id="3_d2mu8"]
+[ext_resource type="Shader" path="res://addons/framework/shaders/usable_shaders/shine.gdshader" id="3_f6sm4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xyy2d"]
+resource_local_to_scene = true
+shader = ExtResource("3_f6sm4")
+shader_parameter/shine_color = Color(1, 1, 1, 1)
+shader_parameter/speed = 2.0
+shader_parameter/flash = 0.0
+
+[sub_resource type="Animation" id="Animation_o5gi2"]
+resource_name = "hit"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("heart/flasher")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.05, false],
+"method": &"flash"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("heart:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("heart:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 12.5664]
+}
+
+[sub_resource type="Animation" id="Animation_4drb4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("heart:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("heart:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dbtcc"]
+_data = {
+"RESET": SubResource("Animation_4drb4"),
+"hit": SubResource("Animation_o5gi2")
+}
 
 [node name="ui_heart" type="Node2D"]
 scale = Vector2(3, 3)
@@ -12,5 +95,13 @@ modulate = Color(0, 0, 0, 0.380392)
 texture = ExtResource("2_204c0")
 
 [node name="heart" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_xyy2d")
 position = Vector2(0, -10)
 texture = ExtResource("2_204c0")
+
+[node name="flasher" parent="heart" instance=ExtResource("3_d2mu8")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dbtcc")
+}
