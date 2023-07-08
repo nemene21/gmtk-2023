@@ -1,7 +1,9 @@
 extends Resource
 class_name PlayerData
 
-var items : Array[String] = []
+signal added_item
+
+var items : Array[String] = ["Sniper Scope", "Big Bullet"]
 
 var default_stats := {
 	"damage_per_bullet" : 0.0,
@@ -30,6 +32,7 @@ var stat_modifiers := {
 }
 
 func add_item(name : String) -> void:
+	emit_signal("added_item")
 	items.append(name)
 
 func get_stat_modifier(name : String):
