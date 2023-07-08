@@ -70,6 +70,8 @@ radius = 39.0128
 radius = 33.0
 
 [node name="squid_enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_vm7fo")
 
 [node name="sprite" type="Sprite2D" parent="."]

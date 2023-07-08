@@ -16,7 +16,7 @@ signal die
 const bullet_scene := preload("res://scenes/enemies/enemy_bullet.tscn")
 
 func _ready():
-	$shoot_delay_timer.wait_time = randf_range(0, 1)
+	$shoot_delay_timer.wait_time = randf_range(0, 1.5)
 	$shoot_delay_timer.start()
 
 func _process(delta):
@@ -63,3 +63,4 @@ func shoot():
 
 func _on_shoot_delay_timer_timeout():
 	shoot_timer.start()
+	shoot()

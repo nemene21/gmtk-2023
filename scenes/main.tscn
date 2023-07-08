@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cqorgqbf84ipi"]
+[gd_scene load_steps=22 format=3 uid="uid://cqorgqbf84ipi"]
 
 [ext_resource type="PackedScene" uid="uid://bf8e26542y7vu" path="res://scenes/player/player.tscn" id="1_3v7hw"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_sin0s"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://l3hlemagoo6y" path="res://scenes/player/ui/ui_heart.tscn" id="5_7vn35"]
 [ext_resource type="PackedScene" uid="uid://dtwuvcg7mhsq5" path="res://scenes/player/ui/ui_money.tscn" id="5_puuvu"]
 [ext_resource type="Script" path="res://scenes/player/ui/hp_ui_container.gd" id="6_07q76"]
+[ext_resource type="Script" path="res://scenes/fps_counter.gd" id="10_1deey"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_11nwr"]
 frequency = 0.03
@@ -128,9 +129,11 @@ _data = {
 "start": SubResource("Animation_v2hhn")
 }
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_uluik"]
-a = Vector2(0.999961, -888)
-b = Vector2(2.00001, 329)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8sq6j"]
+size = Vector2(63, 538)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3w84w"]
+size = Vector2(1086, 49)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_sin0s")
@@ -180,6 +183,7 @@ position = Vector2(-193, -201)
 [node name="fps_counter" type="Label" parent="ui"]
 offset_right = 40.0
 offset_bottom = 22.0
+script = ExtResource("10_1deey")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ui"]
 autoplay = "in"
@@ -196,23 +200,20 @@ libraries = {
 [node name="border" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="border"]
-position = Vector2(0, 139)
-shape = SubResource("SegmentShape2D_uluik")
+position = Vector2(-31.5, 270)
+shape = SubResource("RectangleShape2D_8sq6j")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="border"]
-position = Vector2(180, -1)
-rotation = 1.5708
-shape = SubResource("SegmentShape2D_uluik")
+position = Vector2(992, 269)
+shape = SubResource("RectangleShape2D_8sq6j")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="border"]
-position = Vector2(960, 221)
-rotation = 3.14159
-shape = SubResource("SegmentShape2D_uluik")
+position = Vector2(480, -24.5)
+shape = SubResource("RectangleShape2D_3w84w")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="border"]
-position = Vector2(847, 540)
-rotation = 4.71239
-shape = SubResource("SegmentShape2D_uluik")
+position = Vector2(480, 564)
+shape = SubResource("RectangleShape2D_3w84w")
 
 [connection signal="gain_money" from="Player" to="ui/ui_money" method="_on_player_gain_money"]
 [connection signal="player_hit" from="Player" to="ui/hp_ui" method="player_hit"]
