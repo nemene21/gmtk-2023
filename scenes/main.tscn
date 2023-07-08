@@ -7,8 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://waghafltld3i" path="res://scenes/player/cursor.tscn" id="3_31t07"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_11nwr"]
+frequency = 0.03
+domain_warp_enabled = true
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_itgfd"]
+width = 380
+height = 180
+seamless = true
 noise = SubResource("FastNoiseLite_11nwr")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_36ek2"]
@@ -45,5 +50,3 @@ grow_vertical = 2
 layer = 2
 
 [node name="cursor" parent="ui" instance=ExtResource("3_31t07")]
-rotation = 1.5708
-scale = Vector2(3, 3)

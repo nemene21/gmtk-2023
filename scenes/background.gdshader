@@ -10,7 +10,7 @@ uniform float stripes : hint_range(0.0, 100.0, 1.0);
 uniform float stripe_curve : hint_range(0.0, 20.0);
 uniform float spin_speed : hint_range(0.0, 1.0);
 
-uniform sampler2D noise;
+uniform sampler2D noise : repeat_enable;
 
 const float aratio = 1.7777;
 
@@ -19,7 +19,7 @@ float atan2(vec2 vector) {
 }
 
 void fragment() {
-	vec2 uv = UV + texture(noise, UV).rg * 0.04;
+	vec2 uv = UV + texture(noise, UV + TIME * 0.025).rg * 0.04;
 	
 	vec2 diff  = uv - hole_position;
 	diff.x *= aratio;
