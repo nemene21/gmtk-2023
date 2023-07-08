@@ -14,3 +14,7 @@ func _process(delta):
 	$player.rotation += delta * 2
 	$gun.rotation += delta * 2
 	$jetpack.rotation += delta * 2
+	
+	$player.position += Vector2(sin(Global.time) * delta * 20, sin(Global.time) * delta * 20)
+	$gun.position -= Vector2(sin(Global.time * 1.1) * delta * 20, sin(Global.time) * delta * 20)
+	$jetpack.position += Vector2(sin(Global.time * 0.75) * delta * 30, sin(Global.time) * delta * 20)

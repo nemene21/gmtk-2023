@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://exagplug8xxb"]
+[gd_scene load_steps=10 format=3 uid="uid://exagplug8xxb"]
 
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_rm8qn"]
 [ext_resource type="Shader" path="res://scenes/background.gdshader" id="1_shqhr"]
+[ext_resource type="Texture2D" uid="uid://cobqh3d133uds" path="res://scenes/menu/title.png" id="2_wy2yy"]
 [ext_resource type="Texture2D" uid="uid://dxogjseo5k033" path="res://scenes/player/coolwizardguy.png" id="3_diy30"]
 [ext_resource type="Texture2D" uid="uid://bghhwl0nf8gcq" path="res://scenes/player/jetpack.png" id="4_wxqbm"]
 [ext_resource type="Texture2D" uid="uid://ci632ct5rjnod" path="res://scenes/player/ak.png" id="5_2cfsb"]
@@ -30,13 +31,10 @@ shader_parameter/noise = SubResource("NoiseTexture2D_itgfd")
 [node name="menu" type="Node2D"]
 script = ExtResource("1_rm8qn")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 32.0
-offset_top = 20.0
-offset_right = 536.0
-offset_bottom = 191.0
-theme_override_font_sizes/font_size = 96
-text = "Abyssus"
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(279, 180)
+scale = Vector2(3, 3)
+texture = ExtResource("2_wy2yy")
 
 [node name="bg_layer" type="CanvasLayer" parent="."]
 layer = -1
@@ -50,15 +48,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="press_space" type="RichTextLabel" parent="."]
-offset_left = 173.0
-offset_top = 220.0
-offset_right = 512.0
-offset_bottom = 314.0
+offset_left = 193.0
+offset_top = 391.0
+offset_right = 532.0
+offset_bottom = 485.0
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "[wave amp=50]press space to continue[/wave]"
 
-[node name="press_space2" type="RichTextLabel" parent="."]
+[node name="waaaa" type="RichTextLabel" parent="."]
 z_index = 1
 clip_contents = false
 offset_left = 645.0
@@ -67,7 +65,7 @@ offset_right = 984.0
 offset_bottom = 411.0
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
-text = "[wave amp=150 freq=20]WAAAAAAAAA[/wave]"
+text = "[wave amp=150 freq=10]WAAAAAAAAA[/wave]"
 
 [node name="player" type="Sprite2D" parent="."]
 position = Vector2(626, 335)

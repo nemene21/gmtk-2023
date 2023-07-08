@@ -1,3 +1,11 @@
-[gd_scene format=3 uid="uid://fw27if7erj28"]
+[gd_scene load_steps=3 format=3 uid="uid://fw27if7erj28"]
+
+[ext_resource type="Script" path="res://scenes/enemies/squid/sprite.gd" id="1_hq503"]
+[ext_resource type="Texture2D" uid="uid://cfgk45upea4j" path="res://scenes/enemies/squid/squid.png" id="1_u6i1l"]
 
 [node name="squid_enemy" type="CharacterBody2D"]
+
+[node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_u6i1l")
+script = ExtResource("1_hq503")
