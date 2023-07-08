@@ -34,6 +34,7 @@ script = ExtResource("1_sin0s")
 position = Vector2(480, 270)
 
 [node name="Player" parent="." instance=ExtResource("1_3v7hw")]
+position = Vector2(482, 288)
 
 [node name="bg_layer" type="CanvasLayer" parent="."]
 layer = -1
