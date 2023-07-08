@@ -55,3 +55,48 @@ layer = 2
 
 [node name="skeleton_enemy" parent="." instance=ExtResource("6_2q7r7")]
 position = Vector2(816, 300)
+
+[node name="skeleton_enemy2" parent="." instance=ExtResource("6_2q7r7")]
+position = Vector2(1407, -192)
+
+[node name="skeleton_enemy3" parent="." instance=ExtResource("6_2q7r7")]
+position = Vector2(-379, -699)
+
+[node name="skeleton_enemy4" parent="." instance=ExtResource("6_2q7r7")]
+position = Vector2(-179, 605)
+
+[node name="skeleton_enemy5" parent="." instance=ExtResource("6_2q7r7")]
+position = Vector2(1351, 1393)
+
+[node name="skeleton_enemy6" parent="." instance=ExtResource("6_2q7r7")]
+position = Vector2(1670, 796)
+
+[node name="skeleton_enemy7" parent="." instance=ExtResource("6_2q7r7")]
+position = Vector2(1935, -605)
+
+[node name="skeleton_enemy8" parent="." instance=ExtResource("6_2q7r7")]
+position = Vector2(893, -704)
+
+[node name="skeleton_enemy9" parent="." instance=ExtResource("6_2q7r7")]
+position = Vector2(-207, -206)
+
+[node name="skeleton_enemy10" parent="." instance=ExtResource("6_2q7r7")]
+position = Vector2(-818, 160)
+
+[node name="skeleton_enemy11" parent="." instance=ExtResource("6_2q7r7")]
+position = Vector2(129, 1004)
+
+[node name="skeleton_enemy12" parent="." instance=ExtResource("6_2q7r7")]
+position = Vector2(2818, 21)
+
+[node name="skeleton_enemy13" parent="." instance=ExtResource("6_2q7r7")]
+position = Vector2(1296, 479)
+
+[node name="skeleton_enemy14" parent="." instance=ExtResource("6_2q7r7")]
+position = Vector2(2306, -154)
+
+[node name="skeleton_enemy15" parent="." instance=ExtResource("6_2q7r7")]
+position = Vector2(2620, 582)
+
+[node name="skeleton_enemy16" parent="." instance=ExtResource("6_2q7r7")]
+position = Vector2(2247, 429)

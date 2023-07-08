@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 @export var speed : float = 500
-@export var accel : float = 1000
-@export var frict : float = 1000
+@export var accel : float = 2000
+@export var frict : float = 2000
 
 @onready var body_sprite := $body
 @onready var flasher := $body/flasher
