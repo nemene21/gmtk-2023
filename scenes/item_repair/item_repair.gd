@@ -42,7 +42,7 @@ func repair_item(item_name : String) -> void:
 func update(voided_item : String) -> void:
 	last_voided_item = voided_item
 	var player_data = Global.player.player_data
-	item_lost_label.text = "You lost the %s!" % voided_item.to_lower()
+	item_lost_label.text = "[center]You lost the %s! [wave]hover it to see what it did" % voided_item.to_lower()
 	for button in items_container.get_children():
 		if button.name != "Nothing":
 			button.queue_free()
