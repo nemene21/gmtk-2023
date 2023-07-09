@@ -66,7 +66,7 @@ const items = {
 	"Big Bullet" : {
 		"stats" : {
 			"bullet_size" : 0.5,
-			"bullet_speed" : 0.0
+			"bullet_speed" : -0.3
 		},
 		"repair_cost" : 750,
 		"texture" : preload("res://scenes/items/bulletitem.png"),
