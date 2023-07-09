@@ -18,7 +18,10 @@ signal gain_money
 signal player_hit
 
 func _ready() -> void:
-	player_data.add_item("Patient Demise")
+	var items = Items.items.keys()
+	items.shuffle()
+	for i in 4:
+		player_data.add_item(items.pop_front())
 	Global.player = self
 
 func _process(delta : float) -> void:

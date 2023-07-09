@@ -3,7 +3,7 @@ class_name PlayerData
 
 signal items_changed
 
-var items : Array[String] = ["Sniper Scope", "Big Bullet"]
+var items : Array[String] = []
 var voided_items : Array[String] = []
 
 var default_stats := {
