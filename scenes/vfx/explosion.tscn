@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dugjlkrto82lb"]
+[gd_scene load_steps=12 format=3 uid="uid://dugjlkrto82lb"]
 
 [ext_resource type="Texture2D" uid="uid://cyyl7hgw8sdu2" path="res://scenes/vfx/partcl.png" id="1_ylaow"]
+[ext_resource type="Script" path="res://scenes/vfx/explosion.gd" id="2_lv364"]
 [ext_resource type="Texture2D" uid="uid://d1wvluhjmqipc" path="res://scenes/vfx/spark_particle.png" id="2_q0885"]
 
 [sub_resource type="Gradient" id="Gradient_hcspt"]
@@ -63,6 +64,7 @@ one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
 randomness = 1.0
+script = ExtResource("2_lv364")
 
 [node name="enemy_hit" type="GPUParticles2D" parent="."]
 show_behind_parent = true

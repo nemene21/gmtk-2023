@@ -10,7 +10,7 @@ func _process(delta):
 	if global_position.distance_to(Global.player.global_position) < 16:
 		Global.player.money += 10
 		Global.player.emit_signal("gain_money", Global.player.money)
-		AudioManager.play_sound("money_collect")
+		AudioManager.play_sound("money_collect", 1.0, 1.0, 0.2)
 		queue_free()
 	
 	if tagged:

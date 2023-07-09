@@ -26,7 +26,7 @@ func _process(delta):
 func shoot():
 	emit_signal("shot")
 	
-	AudioManager.play_sound("gun_shoot")
+	AudioManager.play_sound("gun_shoot", 1.0, 1.0, 0.15)
 	
 	reloaded = false
 	

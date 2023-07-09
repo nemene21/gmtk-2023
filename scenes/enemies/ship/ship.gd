@@ -46,10 +46,10 @@ func hit(attack : Attack):
 		
 		get_parent().spawn_money(randi_range(2, 3), global_position)
 		
-		AudioManager.play_sound("enemy_kill", 1, 3)
+		AudioManager.play_sound("enemy_kill", 1, 3, 0.2)
 	else:
 		flasher.flash()
-		AudioManager.play_sound("enemy_hit", 1, 3)
+		AudioManager.play_sound("enemy_hit", 1, 3, 0.2)
 
 
 func _on_move_timer_timeout():

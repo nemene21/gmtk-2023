@@ -9,6 +9,8 @@ func _ready():
 	add_sound("enemy_hit", "res://sfx/Alienhit.mp3")
 	add_sound("enemy_kill", "res://sfx/Alienkill.mp3")
 	add_sound("leave_menu", "res://sfx/leavemenu.mp3")
+	add_sound("explode", "res://sfx/explode.wav")
+	
 	add_track("battle", "res://music/battle.mp3")
 	add_track("menu", "res://music/Menu.mp3")
 	process_mode = Node.PROCESS_MODE_ALWAYS

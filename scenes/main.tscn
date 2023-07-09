@@ -384,4 +384,4 @@ position = Vector2(480, 564)
 shape = SubResource("RectangleShape2D_3w84w")
 
 [connection signal="gain_money" from="Player" to="ui/ui_money" method="_on_player_gain_money"]
-[connection signal="player_hit" from="Player" to="ui/hp_ui" method="player_hit"]
+[connection signal="player_hit" from="Player" to="ui/hp_ui" method="_on_player_player_hit"]
