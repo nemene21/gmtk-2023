@@ -28,12 +28,13 @@ const items = {
 	},
 	"Silly Shells" : {
 		"stats" : {
-			"bullet_amount" : 2,
-			"spread" : 33
+			"bullet_amount" : 3,
+			"spread" : 128,
+			"damage" : 0.5
 		},
 		"repair_cost" : 1000,
 		"texture" : preload("res://scenes/items/silshell.png"),
-		"description" : "You shoot two more bullets but lose accuracy..."
+		"description" : "You shoot two more bullets but lose accuracy and damage..."
 	},
 	"Sniper Scope" : {
 		"stats" : {

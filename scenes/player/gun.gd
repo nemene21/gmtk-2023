@@ -47,16 +47,17 @@ func shoot():
 	
 	if Global.player.hp == 1 and player.player_data.get_stat_percentage("double_damage_when_1hp") > .0:
 		damage *= 2
-	
-	var bullet := bullet_scene.instantiate()
-	bullet.global_position = barrel.global_position
-	bullet.velocity = direction.rotated(randf_range(-spread, spread)) * bullet_speed
-	bullet.damage = damage
-	bullet.scale = Vector2(size, size)
-	
-	reload_timer.start(firerate)
-	
-	player.add_sibling(bullet)
+	print(damage)
+	for i in player.player_data.get_stat_percentage("bullet_amount"):
+		var bullet := bullet_scene.instantiate()
+		bullet.global_position = barrel.global_position
+		bullet.velocity = direction.rotated(randf_range(min(0, -spread), max(0, spread))) * bullet_speed
+		bullet.damage = damage
+		bullet.scale = Vector2(size, size)
+		
+		reload_timer.start(firerate)
+		
+		player.add_sibling(bullet)
 
 func _on_reload_timer_timeout():
 	reloaded = true

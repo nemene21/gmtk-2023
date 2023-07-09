@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var sprite := $sprite
 @onready var hitbox := $hitbox
 
-@export var damage := 1
+@export var damage : float = 1
 
 @onready var hp = Global.player.player_data.get_stat_percentage("piercing")
 @onready var bounce = Global.player.player_data.get_stat_percentage("bullet_bounce")
@@ -32,7 +32,6 @@ func _on_hitbox_hit_something():
 	VfxManager.play_vfx("enemy_hit", global_position, PI + velocity.angle())
 	if hp < 0:
 		queue_free()
-	
 
 func _on_timer_timeout():
 	queue_free()

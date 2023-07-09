@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var barrel := $sprite/barrel
 
 var knockback := Vector2.ZERO
-var hp = 3
+var hp : float = 3
 
 signal die
 

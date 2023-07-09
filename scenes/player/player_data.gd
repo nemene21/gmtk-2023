@@ -23,7 +23,7 @@ var default_stats := {
 var stat_modifiers := {
 	"damage_per_bullet" : 0.0,
 	"damage" : 1.0,
-	"bullet_amount" : 0,
+	"bullet_amount" : 1,
 	"bullet_bounce" : 0,
 	"bullet_slowdown" : 1.0,
 	"bullet_speed" : 1.0,

@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 var vel := Vector2.ZERO
 var knockback := Vector2.ZERO
-var hp := 3
+var hp : float = 3
 
 signal die
 
@@ -28,6 +28,8 @@ func hit(attack : Attack):
 	knockback += attack.knockback
 	
 	if hp <= 0:
+		if is_queued_for_deletion(): return
+		
 		queue_free()
 		
 		emit_signal("die")
