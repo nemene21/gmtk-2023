@@ -65,6 +65,6 @@ alignment = 1
 
 [node name="Nothing" type="Button" parent="CenterContainer/Info/Items"]
 layout_mode = 2
-text = "nothing"
+text = "finished"
 
 [connection signal="pressed" from="CenterContainer/Info/Items/Nothing" to="." method="close"]

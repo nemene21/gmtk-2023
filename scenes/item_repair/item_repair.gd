@@ -6,6 +6,8 @@ extends Control
 @onready var items_container = %Items
 
 var label_settings : LabelSettings
+var last_voided_item : String
+var warning : Label
 
 func _ready() -> void:
 	label_settings = LabelSettings.new()
@@ -24,8 +26,6 @@ func close() -> void:
 	tween.tween_callback(unpause)
 
 func repair_item(button : Button, item_name : String) -> void:
-	close()
-	
 	var player_data = Global.player.player_data
 	player_data.voided_items.erase(item_name)
 	player_data.add_item(item_name)
@@ -33,8 +33,11 @@ func repair_item(button : Button, item_name : String) -> void:
 	
 	player_data.emit_signal("items_changed")
 	Global.player.emit_signal("gain_money", Global.player.money)
+	
+	update(last_voided_item)
 
 func update(voided_item : String) -> void:
+	last_voided_item = voided_item
 	var player_data = Global.player.player_data
 	item_lost_label.text = "you lost %s!" % voided_item.to_lower()
 	for button in items_container.get_children():
@@ -53,7 +56,9 @@ func update(voided_item : String) -> void:
 		items_container.move_child(button, 0)
 	
 	if items_container.get_child_count() == 1:
-		var warning = Label.new()
+		if is_instance_valid(warning):
+			warning.queue_free()
+		warning = Label.new()
 		warning.label_settings = label_settings
 		warning.text = "you have no items you can repair"
 		warning.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

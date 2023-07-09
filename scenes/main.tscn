@@ -168,11 +168,12 @@ visible = false
 [node name="ui" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="Inventory" parent="ui" instance=ExtResource("6_bp4ru")]
-
 [node name="ItemRepair" parent="ui" instance=ExtResource("13_bmqsy")]
 
+[node name="Inventory" parent="ui" instance=ExtResource("6_bp4ru")]
+
 [node name="ui_money" parent="ui" instance=ExtResource("5_puuvu")]
+process_mode = 3
 position = Vector2(36, 401)
 
 [node name="hp_ui" type="Node2D" parent="ui"]
