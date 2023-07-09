@@ -13,6 +13,14 @@ func display_items() -> void:
 	for child in item_display.get_children():
 		child.queue_free()
 	
+	for item_name in player_data.voided_items:
+		var item : Dictionary = Items.items[item_name]
+		var texture := TextureRect.new()
+		texture.texture = item.texture
+		texture.modulate.a = 0.25
+		texture.custom_minimum_size = item.texture.get_size() * 2
+		item_display.add_child(texture)
+	
 	for item_name in player_data.items:
 		var item : Dictionary = Items.items[item_name]
 		var texture := TextureRect.new()
