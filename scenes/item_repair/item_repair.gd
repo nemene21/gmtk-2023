@@ -28,7 +28,7 @@ func close() -> void:
 	tween.tween_property(self, "position", Vector2(0, bg.size.y), 0.2)
 	tween.tween_callback(unpause)
 
-func repair_item(button : Button, item_name : String) -> void:
+func repair_item(item_name : String) -> void:
 	var player_data = Global.player.player_data
 	player_data.voided_items.erase(item_name)
 	player_data.add_item(item_name)
@@ -54,7 +54,7 @@ func update(voided_item : String) -> void:
 		var button = Button.new()
 		button.text = "%s for %d" % [item_name.to_lower(), item.repair_cost]
 		button.icon = item.texture
-		button.pressed.connect(repair_item.bind(button, item_name))
+		button.pressed.connect(repair_item.bind(item_name))
 		items_container.add_child(button)
 		items_container.move_child(button, 0)
 		

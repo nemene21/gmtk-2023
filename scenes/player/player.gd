@@ -47,7 +47,7 @@ func _process(delta : float) -> void:
 	# i frame animation
 	body_sprite.modulate.a = round(abs(cos(max(0, i_frames) * PI * 8)))
 
-func hit(attack : Attack):
+func hit(_attack : Attack):
 	if i_frames > 0: return
 	
 	i_frames = 0.5

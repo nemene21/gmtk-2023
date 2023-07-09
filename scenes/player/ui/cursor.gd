@@ -6,7 +6,7 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	Global.player.gun.connect("shot", spin)
 
-func _process(delta):
+func _process(_delta):
 	global_position = get_global_mouse_position()
 
 func spin():
