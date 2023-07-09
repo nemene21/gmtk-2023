@@ -85,6 +85,7 @@ func _input(event: InputEvent) -> void:
 		Global.player.player_data.voided_items.clear()
 		PostProcessing.transition_scene("res://scenes/main.tscn")
 		$ui/winlose_animator.play_backwards("done")
+		Global.in_gui = false
 
 func enemy_died():
 	enemy_count -= 1
@@ -96,9 +97,11 @@ func lost():
 	$ui/AnimationPlayer.play_backwards("in")
 	$ui/winlose_animator.play("done")
 	game_over = true
+	Global.in_gui = true
 
 func won():
 	$ui/GameOver/Text.text = "You won!"
 	$ui/AnimationPlayer.play_backwards("in")
 	$ui/winlose_animator.play("done")
 	game_over = true
+	Global.in_gui = true
