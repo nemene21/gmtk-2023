@@ -47,7 +47,7 @@ func shoot():
 	
 	if Global.player.hp == 1 and player.player_data.get_stat_percentage("double_damage_when_1hp") > .0:
 		damage *= 2
-	print(damage)
+	
 	for i in player.player_data.get_stat_percentage("bullet_amount"):
 		var bullet := bullet_scene.instantiate()
 		bullet.global_position = barrel.global_position

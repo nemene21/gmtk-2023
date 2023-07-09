@@ -17,6 +17,8 @@ func _physics_process(delta):
 	sprite.rotation = velocity.angle()
 	move_and_slide()
 	
+	velocity = lerp(velocity, Vector2.ZERO, delta * 2 * Global.player.player_data.get_stat_percentage("bullet_slowdown"))
+	
 	if (global_position.x < 0 or global_position.x > 960) and bounce > 0:
 		bounce -= 1
 		velocity.x *= -1
@@ -34,4 +36,4 @@ func _on_hitbox_hit_something():
 		queue_free()
 
 func _on_timer_timeout():
-	queue_free()
+	$AnimationPlayer.play("die")

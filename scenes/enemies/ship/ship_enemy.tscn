@@ -1,0 +1,58 @@
+[gd_scene load_steps=11 format=3 uid="uid://dpkuxtudhqmhb"]
+
+[ext_resource type="Script" path="res://scenes/enemies/ship/ship.gd" id="1_hluut"]
+[ext_resource type="Shader" path="res://addons/framework/shaders/usable_shaders/flash.gdshader" id="2_8626v"]
+[ext_resource type="Texture2D" uid="uid://dqiv5cpv544u3" path="res://scenes/enemies/ship/ship.png" id="2_fbtkg"]
+[ext_resource type="PackedScene" uid="uid://dq16obamf21gv" path="res://addons/framework/op_nodes/components/flasher.tscn" id="3_o6o5v"]
+[ext_resource type="PackedScene" uid="uid://dy2h01o2ksyes" path="res://addons/framework/op_nodes/components/hurtbox.tscn" id="4_t200p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_brcms"]
+shader = ExtResource("2_8626v")
+shader_parameter/flash = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bthfu"]
+radius = 22.0227
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6s8jn"]
+radius = 35.0
+
+[sub_resource type="Animation" id="Animation_qh87p"]
+resource_name = "shoot"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_elc1x"]
+_data = {
+"shoot": SubResource("Animation_qh87p")
+}
+
+[node name="ship" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_hluut")
+
+[node name="sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_brcms")
+scale = Vector2(3, 3)
+texture = ExtResource("2_fbtkg")
+
+[node name="flasher" parent="sprite" instance=ExtResource("3_o6o5v")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bthfu")
+
+[node name="move_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="hurtbox" parent="." instance=ExtResource("4_t200p")]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+shape = SubResource("CircleShape2D_6s8jn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_elc1x")
+}
+
+[connection signal="timeout" from="move_timer" to="." method="_on_move_timer_timeout"]
+[connection signal="got_hit" from="hurtbox" to="." method="hit"]

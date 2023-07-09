@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://l3hlemagoo6y" path="res://scenes/player/ui/ui_heart.tscn" id="5_7vn35"]
 [ext_resource type="PackedScene" uid="uid://dtwuvcg7mhsq5" path="res://scenes/player/ui/ui_money.tscn" id="5_puuvu"]
 [ext_resource type="Script" path="res://scenes/player/ui/hp_ui_container.gd" id="6_07q76"]
-[ext_resource type="PackedScene" path="res://scenes/inventory.tscn" id="6_bp4ru"]
+[ext_resource type="PackedScene" uid="uid://m4y7csfhn0ew" path="res://scenes/inventory.tscn" id="6_bp4ru"]
 [ext_resource type="PackedScene" uid="uid://fgs338ss8al" path="res://scenes/pause/pause.tscn" id="12_h8rjd"]
 [ext_resource type="Shader" path="res://scenes/pause/pause_bg.gdshader" id="12_hy7b0"]
 [ext_resource type="PackedScene" uid="uid://bmylldplos623" path="res://scenes/item_repair/item_repair.tscn" id="13_bmqsy"]

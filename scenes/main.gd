@@ -7,7 +7,7 @@ const money_scene := preload("res://scenes/money/money.tscn")
 
 var wave := 1
 var enemies := [
-	preload("res://scenes/enemies/skeleton/skeleton_enemy.tscn"),
+	preload("res://scenes/enemies/ship/ship_enemy.tscn"),
 	preload("res://scenes/enemies/squid/squid_enemy.tscn")
 ]
 var enemy_points := [
@@ -53,7 +53,10 @@ func new_wave():
 	wave += 1
 	
 	# Remove an item from the player every 3 waves
-	if wave % 3 == 0:
+	if wave % 2 == 1:
+		for crystal in get_tree().get_nodes_in_group("money"):
+			crystal.tagged = true
+		
 		var player_data = Global.player.player_data
 		player_data.void_item()
 		item_repair.update_and_show(player_data.voided_items.back())
