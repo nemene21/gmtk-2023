@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var sprite := $sprite
 
-func _process(delta):
+func _process(_delta):
 	move_and_slide()
 	
 	sprite.rotation = velocity.angle()
