@@ -15,6 +15,7 @@ func _ready() -> void:
 	visible = false
 
 func unpause() -> void:
+	Global.in_gui = false
 	visible = false
 	get_tree().paused = false
 
@@ -68,6 +69,7 @@ func update(voided_item : String) -> void:
 		info.add_child(warning)
 
 func update_and_show(voided_item : String) -> void:
+	Global.in_gui = true
 	update(voided_item)
 	visible = true
 	get_tree().paused = true
