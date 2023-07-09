@@ -235,7 +235,6 @@ visible = false
 layer = 2
 
 [node name="ItemRepair" parent="ui" instance=ExtResource("13_bmqsy")]
-visible = false
 
 [node name="Inventory" parent="ui" instance=ExtResource("6_bp4ru")]
 

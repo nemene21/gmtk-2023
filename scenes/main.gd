@@ -35,7 +35,7 @@ func spawn_money(amount : int, money_position : Vector2) -> void:
 		add_child(money)
 
 func new_wave():
-	if wave == 15:
+	if wave == 10:
 		won()
 		return
 		
@@ -80,7 +80,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("restart") and game_over:
 		Global.player.player_data.items.clear()
 		Global.player.player_data.voided_items.clear()
-		get_tree().reload_current_scene()
+		PostProcessing.transition_scene("res://scenes/main.tscn")
+		$ui/winlose_animator.play_backwards("done")
 
 func enemy_died():
 	enemy_count -= 1

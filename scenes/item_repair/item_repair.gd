@@ -41,7 +41,7 @@ func repair_item(button : Button, item_name : String) -> void:
 func update(voided_item : String) -> void:
 	last_voided_item = voided_item
 	var player_data = Global.player.player_data
-	item_lost_label.text = "you lost %s!" % voided_item.to_lower()
+	item_lost_label.text = "You lost the %s!" % voided_item.to_lower()
 	for button in items_container.get_children():
 		if button.name != "Nothing":
 			button.queue_free()
@@ -63,7 +63,7 @@ func update(voided_item : String) -> void:
 	if items_container.get_child_count() == 1:
 		warning = Label.new()
 		warning.label_settings = label_settings
-		warning.text = "you have no items you can repair"
+		warning.text = "You have no items you can repair :("
 		warning.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		info.add_child(warning)
 
