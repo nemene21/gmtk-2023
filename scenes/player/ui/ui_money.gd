@@ -16,6 +16,12 @@ func _process(delta):
 	label.text = str(ceil(money_displayed))
 	
 	label.position.y = lerp(label.position.y, -20.0, delta * 6)
+	
+	if global_position.distance_to(Global.player.global_position) < 128:
+		modulate.a = lerp(modulate.a, 0.25, 5 * delta)
+	else:
+		modulate.a = lerp(modulate.a, 1.0, 5 * delta)
+	sprite.material.set_shader_parameter("alpha", modulate.a)
 
 
 func _on_player_gain_money(money : int):
