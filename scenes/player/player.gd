@@ -16,6 +16,7 @@ var hp := 4
 var i_frames := .0
 signal gain_money
 signal player_hit
+signal death
 
 func _ready() -> void:
 	var items = Items.items.keys()
@@ -62,6 +63,7 @@ func hit(attack : Attack):
 		get_parent().lost()
 		hide()
 		process_mode = Node.PROCESS_MODE_DISABLED
+		emit_signal("death")
 
 func set_vignette_color(color : Color):
 	PostProcessing.get_node("PostProcessingDraw").material.set("shader_parameter/vignette_color", color)

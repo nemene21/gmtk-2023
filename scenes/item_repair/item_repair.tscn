@@ -65,7 +65,7 @@ columns = 3
 
 [node name="Nothing" type="Button" parent="CenterContainer/Info"]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 4
 text = "finished"
 
 [connection signal="pressed" from="CenterContainer/Info/Nothing" to="." method="close"]

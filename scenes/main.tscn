@@ -151,7 +151,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(-2, -2),
+"transitions": PackedFloat32Array(0.5, -2),
 "update": 0,
 "values": [Vector2(-960, 0), Vector2(0, 0)]
 }
@@ -281,17 +281,15 @@ position = Vector2(-193, -201)
 visible = false
 
 [node name="game_over" type="Label" parent="ui"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -960.0
-offset_right = 1920.0
-offset_bottom = 1620.0
+offset_right = -960.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 64
-text = "Game ended"
+text = "game over"
 horizontal_alignment = 1
 vertical_alignment = 1
 

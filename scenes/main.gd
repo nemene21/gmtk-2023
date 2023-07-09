@@ -24,6 +24,7 @@ func _ready():
 	new_wave()
 	camera.shake(16, 15, 1)
 	AudioManager.play_track("battle")
+	$Player.connect("death", lost)
 
 func spawn_money(amount : int, money_position : Vector2) -> void:
 	for i in amount:
