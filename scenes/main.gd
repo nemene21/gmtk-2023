@@ -19,6 +19,8 @@ var enemy_points := [
 
 var enemy_count := 0
 
+var game_over := false
+
 func _ready():
 	VfxManager.set_target(self)
 	new_wave()
@@ -75,6 +77,10 @@ func _input(event: InputEvent) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	if event.is_action_pressed("restart") and game_over:
+		Global.player.player_data.items.clear()
+		Global.player.player_data.voided_items.clear()
+		get_tree().reload_current_scene()
 
 func enemy_died():
 	enemy_count -= 1
@@ -82,11 +88,13 @@ func enemy_died():
 		new_wave()
 
 func lost():
-	$ui/game_over.text = "You lost!"
+	$ui/GameOver/Text.text = "You lost!"
 	$ui/AnimationPlayer.play_backwards("in")
 	$ui/winlose_animator.play("done")
+	game_over = true
 
 func won():
-	$ui/game_over.text = "You won!"
+	$ui/GameOver/Text.text = "You won!"
 	$ui/AnimationPlayer.play_backwards("in")
 	$ui/winlose_animator.play("done")
+	game_over = true

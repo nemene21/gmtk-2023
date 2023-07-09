@@ -130,7 +130,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("game_over:position")
+tracks/0/path = NodePath("GameOver:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -142,16 +142,16 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_lai0y"]
 resource_name = "done"
-length = 0.5
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("game_over:position")
+tracks/0/path = NodePath("GameOver:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.5, -2),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
 "values": [Vector2(-960, 0), Vector2(0, 0)]
 }
@@ -280,7 +280,7 @@ position = Vector2(-193, -201)
 [node name="tooltip" parent="ui" instance=ExtResource("15_dvlmt")]
 visible = false
 
-[node name="game_over" type="Label" parent="ui"]
+[node name="GameOver" type="VBoxContainer" parent="ui"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -288,10 +288,19 @@ offset_left = -960.0
 offset_right = -960.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+
+[node name="Text" type="Label" parent="ui/GameOver"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "game over"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label" type="Label" parent="ui/GameOver"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "press 'R' to retry"
 
 [node name="winlose_animator" type="AnimationPlayer" parent="ui"]
 libraries = {
