@@ -21,7 +21,7 @@ signal death
 func _ready() -> void:
 	var items = Items.items.keys()
 	items.shuffle()
-	for i in 5:
+	for i in 6:
 		player_data.add_item(items.pop_front())
 	Global.player = self
 
