@@ -58,13 +58,14 @@ text = "click an item you want to repair, if any"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Items" type="HBoxContainer" parent="CenterContainer/Info"]
+[node name="Items" type="GridContainer" parent="CenterContainer/Info"]
 unique_name_in_owner = true
 layout_mode = 2
-alignment = 1
+columns = 3
 
-[node name="Nothing" type="Button" parent="CenterContainer/Info/Items"]
+[node name="Nothing" type="Button" parent="CenterContainer/Info"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "finished"
 
-[connection signal="pressed" from="CenterContainer/Info/Items/Nothing" to="." method="close"]
+[connection signal="pressed" from="CenterContainer/Info/Nothing" to="." method="close"]
