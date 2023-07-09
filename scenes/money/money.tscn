@@ -13,7 +13,6 @@ shader_parameter/flash = null
 shader_parameter/alpha = 1.0
 
 [node name="money" type="Node2D" groups=["money"]]
-process_mode = 3
 z_index = -1
 script = ExtResource("1_p0xhq")
 

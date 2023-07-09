@@ -7,10 +7,12 @@ const money_scene := preload("res://scenes/money/money.tscn")
 
 var wave := 1
 var enemies := [
+	preload("res://scenes/enemies/skeleton/skeleton_enemy.tscn"),
 	preload("res://scenes/enemies/ship/ship_enemy.tscn"),
 	preload("res://scenes/enemies/squid/squid_enemy.tscn")
 ]
 var enemy_points := [
+	100,
 	100,
 	100
 ]
@@ -29,6 +31,10 @@ func spawn_money(amount : int, money_position : Vector2) -> void:
 		add_child(money)
 
 func new_wave():
+	if wave == 15:
+		won()
+		return
+		
 	var points := 200 * wave + 100
 	while points > 0:
 		var index : int = randi_range(0, len(enemies) - 1)
@@ -54,13 +60,10 @@ func new_wave():
 	
 	# Remove an item from the player every 3 waves
 	if wave % 2 == 1:
-		for crystal in get_tree().get_nodes_in_group("money"):
-			crystal.tagged = true
 		
 		var player_data = Global.player.player_data
 		player_data.void_item()
 		item_repair.update_and_show(player_data.voided_items.back())
-
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("fullscreen"):
@@ -73,3 +76,13 @@ func enemy_died():
 	enemy_count -= 1
 	if enemy_count == 0:
 		new_wave()
+
+func lost():
+	$ui/game_over.text = "You lost!"
+	$ui/AnimationPlayer.play_backwards("in")
+	$ui/winlose_animator.play("done")
+
+func won():
+	$ui/game_over.text = "You won!"
+	$ui/AnimationPlayer.play_backwards("in")
+	$ui/winlose_animator.play("done")

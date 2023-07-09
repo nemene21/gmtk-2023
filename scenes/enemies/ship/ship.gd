@@ -62,5 +62,13 @@ func _on_move_timer_timeout():
 	
 	move_timer.start()
 
+const bullet_scene := preload("res://scenes/enemies/enemy_bullet.tscn")
 func shoot():
-	pass
+	for i in 4:
+		var bullet = bullet_scene.instantiate()
+		var direction := Vector2(1, 0).rotated(i * PI * 0.5)
+		
+		bullet.global_position = global_position + direction * 24
+		bullet.velocity = direction * 150
+		
+		add_sibling(bullet)

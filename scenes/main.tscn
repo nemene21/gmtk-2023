@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cqorgqbf84ipi"]
+[gd_scene load_steps=30 format=3 uid="uid://cqorgqbf84ipi"]
 
 [ext_resource type="PackedScene" uid="uid://bf8e26542y7vu" path="res://scenes/player/player.tscn" id="1_3v7hw"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_sin0s"]
@@ -66,6 +66,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(36, 401)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Inventory:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_6unpq"]
 resource_name = "in"
@@ -94,11 +106,60 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(-199, 401), Vector2(36, 401)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Inventory:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_udtif"]
 _data = {
 "RESET": SubResource("Animation_e2eeh"),
 "in": SubResource("Animation_6unpq")
+}
+
+[sub_resource type="Animation" id="Animation_lai0y"]
+resource_name = "done"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("game_over:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(-960, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1k1n2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("game_over:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-960, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kqr3b"]
+_data = {
+"RESET": SubResource("Animation_1k1n2"),
+"done": SubResource("Animation_lai0y")
 }
 
 [sub_resource type="Animation" id="Animation_xwioq"]
@@ -217,6 +278,24 @@ position = Vector2(-193, -201)
 
 [node name="tooltip" parent="ui" instance=ExtResource("15_dvlmt")]
 visible = false
+
+[node name="game_over" type="Label" parent="ui"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_right = -960.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Game ended"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="winlose_animator" type="AnimationPlayer" parent="ui"]
+libraries = {
+"": SubResource("AnimationLibrary_kqr3b")
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "start"

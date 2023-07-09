@@ -55,6 +55,11 @@ func hit(attack : Attack):
 	create_tween().tween_method(set_vignette_color, Color(1, 0, 0), Color(0, 0, 0), 0.33)
 	hp -= 1
 	emit_signal("player_hit")
+	
+	if hp <= 0:
+		get_parent().lost()
+		hide()
+		process_mode = Node.PROCESS_MODE_DISABLED
 
 func set_vignette_color(color : Color):
 	PostProcessing.get_node("PostProcessingDraw").material.set("shader_parameter/vignette_color", color)
