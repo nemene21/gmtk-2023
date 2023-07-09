@@ -71,6 +71,14 @@ const items = {
 		"repair_cost" : 750,
 		"texture" : preload("res://scenes/items/bulletitem.png"),
 		"description" : "Bullets are [shake]larger[/shake], but slower..."
+	},
+	"Battery Waste" : {
+		"stats" : {
+			"fresh_bullets" : 1
+		},
+		"repair_cost" : 750,
+		"texture" : preload("res://scenes/items/battery.png"),
+		"description" : "Bullets do more damage when they are [rainbow]fresh[/rainbow]!"
 	}
 }
 

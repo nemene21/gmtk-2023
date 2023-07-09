@@ -18,6 +18,7 @@ var default_stats := {
 	"bullet_size" : 1.0,
 	"piercing" : 1.0,
 	"double_damage_when_1hp" : 1.0,
+	"fresh_bullets" : 1,
 }
 
 var stat_modifiers := {
@@ -32,6 +33,7 @@ var stat_modifiers := {
 	"bullet_size" : 1.0,
 	"piercing" : .0,
 	"double_damage_when_1hp" : .0,
+	"fresh_bullets" : 0,
 }
 
 func add_item(name : String) -> void:

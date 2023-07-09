@@ -137,5 +137,11 @@ wait_time = 3.5
 one_shot = true
 autostart = true
 
+[node name="cool_off" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
 [connection signal="hit_something" from="hitbox" to="." method="_on_hitbox_hit_something"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="cool_off" to="." method="_on_cool_off_timeout"]

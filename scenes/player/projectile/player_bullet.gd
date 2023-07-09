@@ -12,9 +12,15 @@ func _ready():
 	hitbox.attack = Attack.new()
 	hitbox.attack.damage = damage
 	hitbox.attack.knockback = velocity * 0.2
-
+	
+	if Global.player.player_data.get_stat_percentage("fresh_bullets") != 0:
+		sprite.modulate = Color("ff5600")
+		damage *= 2
+		
 func _physics_process(delta):
 	hitbox.attack.knockback = velocity * 0.2
+	
+	hitbox.attack.damage = damage
 	
 	sprite.rotation = velocity.angle()
 	move_and_slide()
@@ -39,3 +45,9 @@ func _on_hitbox_hit_something():
 
 func _on_timer_timeout():
 	$AnimationPlayer.play("die")
+
+func _on_cool_off_timeout():
+	if Global.player.player_data.get_stat_percentage("fresh_bullets") == 0: return
+	
+	sprite.modulate = Color(1, 1, 1)
+	damage /= 2
