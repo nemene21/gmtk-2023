@@ -56,6 +56,8 @@ func hit(attack : Attack):
 	hp -= 1
 	emit_signal("player_hit")
 	
+	AudioManager.play_sound("player_hit")
+	
 	if hp <= 0:
 		get_parent().lost()
 		hide()

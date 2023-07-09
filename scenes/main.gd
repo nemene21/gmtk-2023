@@ -37,6 +37,9 @@ func new_wave():
 		return
 		
 	var points := 200 * wave + 100
+	
+	AudioManager.play_sound("wave_start")
+	
 	while points > 0:
 		var index : int = randi_range(0, len(enemies) - 1)
 		var enemy_scene : PackedScene = enemies[index]
@@ -61,7 +64,6 @@ func new_wave():
 	
 	# Remove an item from the player every 3 waves
 	if wave % 2 == 1:
-		
 		var player_data = Global.player.player_data
 		player_data.void_item()
 		item_repair.update_and_show(player_data.voided_items.back())

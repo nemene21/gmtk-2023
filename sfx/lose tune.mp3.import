@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cnk0ljhxdmgms"
+path="res://.godot/imported/lose tune.mp3-c6a5c52eeb8837466b0c4583f39578c5.mp3str"
+
+[deps]
+
+source_file="res://sfx/lose tune.mp3"
+dest_files=["res://.godot/imported/lose tune.mp3-c6a5c52eeb8837466b0c4583f39578c5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

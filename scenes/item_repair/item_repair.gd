@@ -19,6 +19,8 @@ func unpause() -> void:
 	get_tree().paused = false
 
 func close() -> void:
+	AudioManager.play_sound("leave_menu")
+	
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_EXPO)
 	tween.set_ease(Tween.EASE_IN)

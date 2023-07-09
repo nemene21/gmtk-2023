@@ -14,7 +14,8 @@ var hp : float = 3
 signal die
 
 var moving := false
-func _ready():
+func _ready() -> void:
+	AudioManager.call_deferred("play_sound", "enemy_spawn")
 	move_timer.wait_time = randf_range(0, 2)
 	move_timer.start()
 
@@ -45,8 +46,10 @@ func hit(attack : Attack):
 		
 		get_parent().spawn_money(randi_range(2, 3), global_position)
 		
+		AudioManager.play_sound("enemy_kill", 1, 3)
 	else:
 		flasher.flash()
+		AudioManager.play_sound("enemy_hit", 1, 3)
 
 
 func _on_move_timer_timeout():

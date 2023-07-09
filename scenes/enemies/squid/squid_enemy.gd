@@ -15,7 +15,8 @@ signal die
 
 const bullet_scene := preload("res://scenes/enemies/enemy_bullet.tscn")
 
-func _ready():
+func _ready() -> void:
+	AudioManager.call_deferred("play_sound", "enemy_spawn")
 	$shoot_delay_timer.wait_time = randf_range(0, 1.5)
 	$shoot_delay_timer.start()
 
@@ -51,8 +52,10 @@ func hit(attack : Attack):
 		
 		get_parent().spawn_money(randi_range(2, 3), global_position)
 		
+		AudioManager.play_sound("enemy_kill", 1, 3)
 	else:
 		flasher.flash()
+		AudioManager.play_sound("enemy_hit", 1, 3)
 
 func shoot_start():
 	animation_player.play("shoot")

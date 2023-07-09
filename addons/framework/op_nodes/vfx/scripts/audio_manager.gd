@@ -1,7 +1,16 @@
 extends Node
 
 func _ready():
+	add_sound("gun_shoot", "res://sfx/gunshot.mp3")
+	add_sound("enemy_spawn", "res://sfx/enemyspawn.mp3")
+	add_sound("money_collect", "res://sfx/Crystal.mp3")
+	add_sound("player_hit", "res://sfx/Playerhit.mp3")
+	add_sound("wave_start", "res://sfx/wave spawn.mp3")
+	add_sound("enemy_hit", "res://sfx/Alienhit.mp3")
+	add_sound("enemy_kill", "res://sfx/Alienkill.mp3")
+	add_sound("leave_menu", "res://sfx/leavemenu.mp3")
 	add_track("battle", "res://music/battle.mp3")
+	add_track("menu", "res://music/Menu.mp3")
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 # Sound effects
@@ -67,7 +76,7 @@ func play_track(name : String, fade_time : float = 0.5):
 		tween.tween_property(tracks[last_track], "volume_db", -80, fade_time).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
 
 	var tween = get_tree().create_tween()
-	tween.tween_property(tracks[name], "volume_db", 0, fade_time).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(tracks[name], "volume_db", -5, fade_time).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
 	
 	tracks[name].play()
 	

@@ -235,6 +235,7 @@ visible = false
 layer = 2
 
 [node name="ItemRepair" parent="ui" instance=ExtResource("13_bmqsy")]
+visible = false
 
 [node name="Inventory" parent="ui" instance=ExtResource("6_bp4ru")]
 
@@ -280,11 +281,13 @@ position = Vector2(-193, -201)
 visible = false
 
 [node name="game_over" type="Label" parent="ui"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -960.0
-offset_right = -960.0
+offset_right = 960.0
+offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 64

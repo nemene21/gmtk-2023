@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://v5h6au1w6y7s"
+path="res://.godot/imported/wave spawn.mp3-72c1581a7a39ce3f2d42f484ae54146e.mp3str"
+
+[deps]
+
+source_file="res://sfx/wave spawn.mp3"
+dest_files=["res://.godot/imported/wave spawn.mp3-72c1581a7a39ce3f2d42f484ae54146e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

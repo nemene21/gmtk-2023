@@ -26,6 +26,8 @@ func _process(delta):
 func shoot():
 	emit_signal("shot")
 	
+	AudioManager.play_sound("gun_shoot")
+	
 	reloaded = false
 	
 	var difference : Vector2 = get_global_mouse_position() - global_position

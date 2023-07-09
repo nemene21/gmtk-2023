@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://btvqn4ck6anog"
+path="res://.godot/imported/win tune.mp3-ba749094e925850d194a48e3e1bb80af.mp3str"
+
+[deps]
+
+source_file="res://sfx/win tune.mp3"
+dest_files=["res://.godot/imported/win tune.mp3-ba749094e925850d194a48e3e1bb80af.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

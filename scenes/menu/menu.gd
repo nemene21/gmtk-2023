@@ -3,12 +3,13 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	AudioManager.play_track("menu")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("space"):
+		AudioManager.play_sound("leave_menu")
 		PostProcessing.transition_scene("res://scenes/main.tscn")
 		
 	$Title.position.y = 170 + sin(Global.time * 2) * 16

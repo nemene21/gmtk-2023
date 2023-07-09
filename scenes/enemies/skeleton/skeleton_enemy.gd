@@ -11,6 +11,9 @@ var hp : float = 3
 
 signal die
 
+func _ready() -> void:
+	AudioManager.call_deferred("play_sound", "enemy_spawn")
+
 func _process(delta):
 	var best_movement : Vector2 = (
 		Global.player.global_position - global_position
@@ -42,8 +45,10 @@ func hit(attack : Attack):
 		
 		get_parent().spawn_money(randi_range(2, 3), global_position)
 		
+		AudioManager.play_sound("enemy_kill", 1, 3)
 	else:
 		flasher.flash()
+		AudioManager.play_sound("enemy_hit", 1, 3)
 
 func hit_player():
 	VfxManager.play_vfx("explosion", global_position)
