@@ -48,7 +48,7 @@ const items = {
 	},
 	"Void's Edge" : {
 		"stats" : {
-			"double_damage_when_1hp" : 1
+			"double_damage_when_1hp" : 1.0
 		},
 		"repair_cost" : 1000,
 		"texture" : preload("res://scenes/items/voidsedge.png"),
@@ -56,7 +56,7 @@ const items = {
 	},
 	"Sharp Nail" : {
 		"stats" : {
-			"piercing" : 1
+			"piercing" : 1.0
 		},
 		"repair_cost" : 1000,
 		"texture" : preload("res://scenes/items/nailitem.png"),

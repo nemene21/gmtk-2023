@@ -20,7 +20,7 @@ signal player_hit
 func _ready() -> void:
 	var items = Items.items.keys()
 	items.shuffle()
-	for i in 4:
+	for i in 7:
 		player_data.add_item(items.pop_front())
 	Global.player = self
 

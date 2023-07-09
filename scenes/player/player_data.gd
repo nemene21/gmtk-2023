@@ -7,16 +7,17 @@ var items : Array[String] = []
 var voided_items : Array[String] = []
 
 var default_stats := {
-	"damage_per_bullet" : 0.0,
+	"damage_per_bullet" : 0.1,
 	"damage" : 1,
 	"bullet_amount" : 1,
-	"bullet_bounce" : 1,
+	"bullet_bounce" : 3,
 	"bullet_slowdown" : 1,
 	"bullet_speed" : 1000.0,
 	"firerate" : 0.2,
-	"spread" : 0.0,
+	"spread" : 0.05,
 	"bullet_size" : 1.0,
-	"piercing" : 0.0,
+	"piercing" : 1.0,
+	"double_damage_when_1hp" : 1.0,
 }
 
 var stat_modifiers := {
@@ -29,7 +30,8 @@ var stat_modifiers := {
 	"firerate" : 1.0,
 	"spread" : 1.0,
 	"bullet_size" : 1.0,
-	"piercing" : 0,
+	"piercing" : .0,
+	"double_damage_when_1hp" : .0,
 }
 
 func add_item(name : String) -> void:

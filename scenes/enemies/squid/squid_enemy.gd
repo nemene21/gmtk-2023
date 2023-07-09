@@ -33,6 +33,8 @@ func _process(delta):
 	sprite.rotation_degrees -= 90
 
 func hit(attack : Attack):
+	if is_queued_for_deletion(): return
+	
 	hp -= attack.damage
 	knockback += attack.knockback
 	

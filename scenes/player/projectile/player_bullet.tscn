@@ -49,7 +49,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_0twvf"]
 radius = 21.0
 
-[node name="player_bullet" type="CharacterBody2D"]
+[node name="player_bullet" type="CharacterBody2D" groups=["friendly_bullet"]]
 script = ExtResource("1_pkm8x")
 
 [node name="sprite" type="Sprite2D" parent="."]

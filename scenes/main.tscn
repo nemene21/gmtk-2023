@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://diq541e3clnxd"]
+[gd_scene load_steps=27 format=3 uid="uid://cqorgqbf84ipi"]
 
 [ext_resource type="PackedScene" uid="uid://bf8e26542y7vu" path="res://scenes/player/player.tscn" id="1_3v7hw"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_sin0s"]
@@ -9,11 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://l3hlemagoo6y" path="res://scenes/player/ui/ui_heart.tscn" id="5_7vn35"]
 [ext_resource type="PackedScene" uid="uid://dtwuvcg7mhsq5" path="res://scenes/player/ui/ui_money.tscn" id="5_puuvu"]
 [ext_resource type="Script" path="res://scenes/player/ui/hp_ui_container.gd" id="6_07q76"]
-[ext_resource type="PackedScene" uid="uid://m4y7csfhn0ew" path="res://scenes/inventory.tscn" id="6_bp4ru"]
-[ext_resource type="Script" path="res://scenes/fps_counter.gd" id="10_1deey"]
+[ext_resource type="PackedScene" path="res://scenes/inventory.tscn" id="6_bp4ru"]
 [ext_resource type="PackedScene" uid="uid://fgs338ss8al" path="res://scenes/pause/pause.tscn" id="12_h8rjd"]
 [ext_resource type="Shader" path="res://scenes/pause/pause_bg.gdshader" id="12_hy7b0"]
 [ext_resource type="PackedScene" uid="uid://bmylldplos623" path="res://scenes/item_repair/item_repair.tscn" id="13_bmqsy"]
+[ext_resource type="PackedScene" uid="uid://cyocvb45be4fy" path="res://scenes/player/ui/tooltip.tscn" id="15_dvlmt"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_11nwr"]
 frequency = 0.03
@@ -206,11 +206,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.501961)
 
-[node name="fps_counter" type="Label" parent="ui"]
-offset_right = 40.0
-offset_bottom = 22.0
-script = ExtResource("10_1deey")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ui"]
 autoplay = "in"
 libraries = {
@@ -219,6 +214,9 @@ libraries = {
 
 [node name="cursor" parent="ui" instance=ExtResource("3_31t07")]
 position = Vector2(-193, -201)
+
+[node name="tooltip" parent="ui" instance=ExtResource("15_dvlmt")]
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "start"

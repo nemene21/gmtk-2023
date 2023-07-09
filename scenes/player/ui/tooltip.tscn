@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyocvb45be4fy"]
+
+[ext_resource type="Script" path="res://scenes/player/ui/tooltip.gd" id="1_qcf0o"]
+
+[node name="tooltip" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_qcf0o")
+
+[node name="name" type="Label" parent="."]
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 435.0
+offset_bottom = 38.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 16
+text = "Item Name"
+
+[node name="description" type="RichTextLabel" parent="."]
+clip_contents = false
+offset_left = 7.0
+offset_top = 40.0
+offset_right = 442.0
+offset_bottom = 194.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/outline_size = 8
+bbcode_enabled = true
+text = "[rainbow]item description goes here"
+text_direction = 1

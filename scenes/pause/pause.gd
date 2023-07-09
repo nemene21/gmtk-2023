@@ -11,6 +11,8 @@ func toggle_pause() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
+		if get_parent().get_parent().enemy_count == 0: return
+		
 		if !visible:
 			toggle_pause()
 			position.y = bg.size.y

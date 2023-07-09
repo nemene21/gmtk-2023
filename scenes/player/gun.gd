@@ -42,6 +42,12 @@ func shoot():
 	var damage = player.player_data.get_stat_percentage("damage")
 	var size = player.player_data.get_stat_percentage("bullet_size")
 	
+	var friendly_bullets = len(get_tree().get_nodes_in_group("friendly_bullet"))
+	damage += player.player_data.get_stat_percentage("damage_per_bullet") * friendly_bullets
+	
+	if Global.player.hp == 1 and player.player_data.get_stat_percentage("double_damage_when_1hp") > .0:
+		damage *= 2
+	
 	var bullet := bullet_scene.instantiate()
 	bullet.global_position = barrel.global_position
 	bullet.velocity = direction.rotated(randf_range(-spread, spread)) * bullet_speed
