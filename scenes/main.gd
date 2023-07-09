@@ -23,6 +23,7 @@ func _ready():
 	VfxManager.set_target(self)
 	new_wave()
 	camera.shake(16, 15, 1)
+	AudioManager.play_track("battle")
 
 func spawn_money(amount : int, money_position : Vector2) -> void:
 	for i in amount:

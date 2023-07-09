@@ -1,7 +1,8 @@
 extends Node
 
 func _ready():
-	pass
+	add_track("battle", "res://music/battle.mp3")
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 # Sound effects
 var sounds = {}

@@ -125,6 +125,21 @@ _data = {
 "in": SubResource("Animation_6unpq")
 }
 
+[sub_resource type="Animation" id="Animation_1k1n2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("game_over:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-960, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_lai0y"]
 resource_name = "done"
 length = 0.5
@@ -139,21 +154,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(-2, -2),
 "update": 0,
 "values": [Vector2(-960, 0), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_1k1n2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("game_over:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-960, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kqr3b"]
