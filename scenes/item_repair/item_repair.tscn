@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmylldplos623"]
+[gd_scene load_steps=5 format=3 uid="uid://bmylldplos623"]
 
 [ext_resource type="Script" path="res://scenes/item_repair/item_repair.gd" id="1_8ewc0"]
 [ext_resource type="Shader" path="res://scenes/pause/pause_bg.gdshader" id="2_n5os7"]
@@ -6,6 +6,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2c7x"]
 shader = ExtResource("2_n5os7")
 shader_parameter/alpha = 0.5
+
+[sub_resource type="LabelSettings" id="LabelSettings_fob47"]
 
 [node name="ItemRepair" type="Control"]
 process_mode = 3
@@ -38,29 +40,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="Info" type="VBoxContainer" parent="CenterContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ItemLost" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="ItemLost" type="Label" parent="CenterContainer/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "you lost the [Item name]!"
+label_settings = SubResource("LabelSettings_fob47")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Repair" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Repair" type="Label" parent="CenterContainer/Info"]
 layout_mode = 2
 text = "click an item you want to repair, if any"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Items" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+[node name="Items" type="HBoxContainer" parent="CenterContainer/Info"]
 unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="Nothing" type="Button" parent="CenterContainer/VBoxContainer/Items"]
+[node name="Nothing" type="Button" parent="CenterContainer/Info/Items"]
 layout_mode = 2
 text = "nothing"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Items/Nothing" to="." method="close"]
+[connection signal="pressed" from="CenterContainer/Info/Items/Nothing" to="." method="close"]
