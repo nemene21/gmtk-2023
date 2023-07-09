@@ -35,7 +35,7 @@ func spawn_money(amount : int, money_position : Vector2) -> void:
 		add_child(money)
 
 func new_wave():
-	if wave == 15:
+	if wave == 16:
 		won()
 		return
 	
