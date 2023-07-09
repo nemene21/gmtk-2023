@@ -10,10 +10,10 @@ func toggle_pause() -> void:
 	get_tree().paused = visible
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause") and not Global.in_gui:
+	if event.is_action_pressed("pause"):
 		if get_parent().get_parent().enemy_count == 0: return
 		
-		if !visible:
+		if !visible and not Global.in_gui:
 			toggle_pause()
 			position.y = bg.size.y
 			var tween = create_tween()
