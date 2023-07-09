@@ -54,7 +54,7 @@ vertical_alignment = 1
 
 [node name="Repair" type="Label" parent="CenterContainer/Info"]
 layout_mode = 2
-text = "click an item you want to repair, if any"
+text = "Click an item you want to repair, if any..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
