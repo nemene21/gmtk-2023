@@ -133,7 +133,7 @@ visible = false
 shape = SubResource("CircleShape2D_0twvf")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.5
 one_shot = true
 autostart = true
 
