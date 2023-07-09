@@ -59,9 +59,8 @@ func update(voided_item : String) -> void:
 		items_container.move_child(button, 0)
 		
 	if is_instance_valid(warning):
-			warning.queue_free()
-			
-	if items_container.get_child_count() == 1:
+		warning.queue_free()
+	if items_container.get_child_count() == 0:
 		warning = Label.new()
 		warning.label_settings = label_settings
 		warning.text = "You have no items you can repair :("
