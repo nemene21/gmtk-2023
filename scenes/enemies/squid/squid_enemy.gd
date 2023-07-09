@@ -17,7 +17,7 @@ const bullet_scene := preload("res://scenes/enemies/enemy_bullet.tscn")
 
 func _ready() -> void:
 	AudioManager.call_deferred("play_sound", "enemy_spawn")
-	$shoot_delay_timer.wait_time = randf_range(0, 1.5)
+	$shoot_delay_timer.wait_time = randf_range(1.0, 2.5)
 	$shoot_delay_timer.start()
 
 func _process(delta):
