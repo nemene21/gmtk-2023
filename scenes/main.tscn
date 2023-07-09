@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://diq541e3clnxd"]
+[gd_scene load_steps=25 format=3 uid="uid://diq541e3clnxd"]
 
 [ext_resource type="PackedScene" uid="uid://bf8e26542y7vu" path="res://scenes/player/player.tscn" id="1_3v7hw"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_sin0s"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://m4y7csfhn0ew" path="res://scenes/inventory.tscn" id="6_bp4ru"]
 [ext_resource type="Script" path="res://scenes/fps_counter.gd" id="10_1deey"]
 [ext_resource type="PackedScene" uid="uid://fgs338ss8al" path="res://scenes/pause/pause.tscn" id="12_h8rjd"]
+[ext_resource type="PackedScene" uid="uid://bmylldplos623" path="res://scenes/item_repair/item_repair.tscn" id="13_bmqsy"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_11nwr"]
 frequency = 0.03
@@ -200,6 +201,8 @@ autoplay = "in"
 libraries = {
 "": SubResource("AnimationLibrary_udtif")
 }
+
+[node name="ItemRepair" parent="ui" instance=ExtResource("13_bmqsy")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "start"

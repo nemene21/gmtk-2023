@@ -40,7 +40,6 @@ func void_item() -> void:
 	var item_name = items.pop_front()
 	voided_items.append(item_name)
 	emit_signal("items_changed")
-	print(voided_items)
 
 func get_stat_modifier(name : String):
 	assert(name in stat_modifiers.keys())

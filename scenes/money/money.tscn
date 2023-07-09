@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/money/money.gd" id="1_p0xhq"]
 [ext_resource type="Shader" path="res://addons/framework/shaders/usable_shaders/shine.gdshader" id="2_6jevl"]
 [ext_resource type="Texture2D" uid="uid://bc04ndo4pqe2f" path="res://scenes/money/smallcurrency.png" id="3_txcy0"]
-[ext_resource type="PackedScene" uid="uid://xokn7fbeo8l8" path="res://addons/framework/op_nodes/vfx/trail.tscn" id="4_fvqaf"]
+[ext_resource type="PackedScene" path="res://addons/framework/op_nodes/vfx/trail.tscn" id="4_fvqaf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j3d0r"]
 shader = ExtResource("2_6jevl")

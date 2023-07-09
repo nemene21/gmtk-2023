@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scenes/inventory.gd" id="1_1ye5l"]
 
 [node name="Inventory" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

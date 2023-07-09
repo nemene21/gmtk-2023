@@ -6,6 +6,7 @@ const items = {
 		"stats" : {
 			"damage_per_bullet" : -0.1
 		},
+		"repair_cost" : 1000,
 		"texture" : preload("res://scenes/items/almightyorb.png"),
 		"description" : "The more [rainbow]friendly[/rainbow] bullets there are, the more damage you do!"
 	},
@@ -13,6 +14,7 @@ const items = {
 		"stats" : {
 			"bullet_bounce" : 1
 		},
+		"repair_cost" : 1000,
 		"texture" : preload("res://scenes/items/bouncysubstance.png"),
 		"description" : "Your bullets [wave]bounce[/wave] off the screen's edges!"
 	},
@@ -20,6 +22,7 @@ const items = {
 		"stats" : {
 			"bullet_slowdown" : -0.5
 		},
+		"repair_cost" : 1000,
 		"texture" : preload("res://scenes/items/patientdemise.png"),
 		"description" : "Bullets will [wave]patiently wait[/wave] to hit something instead of going off-screen!"
 	},
@@ -28,6 +31,7 @@ const items = {
 			"bullet_amount" : 2,
 			"spread" : 33
 		},
+		"repair_cost" : 1000,
 		"texture" : preload("res://scenes/items/silshell.png"),
 		"description" : "You shoot two more bullets but lose accuracy..."
 	},
@@ -38,6 +42,7 @@ const items = {
 			"firerate" : 0.5,
 			"damage" : 1
 		},
+		"repair_cost" : 1000,
 		"texture" : preload("res://scenes/items/sniperscope.png"),
 		"description" : "Your shots are more accurate, faster and do more damage, but you shoot much slower..."
 	},
@@ -45,6 +50,7 @@ const items = {
 		"stats" : {
 			"double_damage_when_1hp" : 1
 		},
+		"repair_cost" : 1000,
 		"texture" : preload("res://scenes/items/voidsedge.png"),
 		"description" : "The adrenaline makes you do [wave]double damage[/wave] when on 1 HP!?"
 	},
@@ -52,6 +58,7 @@ const items = {
 		"stats" : {
 			"piercing" : 1
 		},
+		"repair_cost" : 1000,
 		"texture" : preload("res://scenes/items/nailitem.png"),
 		"description" : "Bullets [shake]pierce[/shake] trough an additional enemy (ouch)"
 	},
@@ -60,6 +67,7 @@ const items = {
 			"bullet_size" : 0.5,
 			"bullet_speed" : 0.0
 		},
+		"repair_cost" : 1000,
 		"texture" : preload("res://scenes/items/bulletitem.png"),
 		"description" : "Bullets are [shake]larger[/shake], but slower..."
 	}

@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmylldplos623"]
+
+[ext_resource type="Script" path="res://scenes/item_repair/item_repair.gd" id="1_8ewc0"]
+[ext_resource type="Shader" path="res://scenes/pause/pause_bg.gdshader" id="2_n5os7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f2c7x"]
+shader = ExtResource("2_n5os7")
+shader_parameter/alpha = 0.5
+
+[node name="ItemRepair" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ewc0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_f2c7x")
+custom_minimum_size = Vector2(0, 1080)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -270.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="ItemLost" type="Label" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "you lost the [Item name]!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Repair" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "click an item you want to repair, if any"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Items" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="Nothing" type="Button" parent="CenterContainer/VBoxContainer/Items"]
+layout_mode = 2
+text = "nothing"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Items/Nothing" to="." method="close"]

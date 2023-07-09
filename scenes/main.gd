@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var camera := $camera
+@onready var item_repair := $ui/ItemRepair
 
 const money_scene := preload("res://scenes/money/money.tscn")
 
@@ -55,6 +56,7 @@ func new_wave():
 	if wave % 3 == 0:
 		var player_data = Global.player.player_data
 		player_data.void_item()
+		item_repair.update_and_show(player_data.voided_items.back())
 
 
 func _input(event: InputEvent) -> void:
