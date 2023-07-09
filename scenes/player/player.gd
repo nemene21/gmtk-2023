@@ -63,6 +63,7 @@ func hit(attack : Attack):
 		hide()
 		process_mode = Node.PROCESS_MODE_DISABLED
 		emit_signal("death")
+		VfxManager.play_vfx("explosion", global_position)
 	else:
 		flasher.flash()
 

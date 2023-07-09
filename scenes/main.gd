@@ -35,10 +35,13 @@ func spawn_money(amount : int, money_position : Vector2) -> void:
 		add_child(money)
 
 func new_wave():
-	if wave == 10:
+	if wave == 20:
 		won()
 		return
-		
+	
+	$ui/wave_on.text = str(wave)
+	$ui/wave_on/AnimationPlayer.play("show")
+	
 	var points := 200 * wave + 100
 	
 	AudioManager.play_sound("wave_start")
