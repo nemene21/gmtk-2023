@@ -37,7 +37,9 @@ func add_item(name : String) -> void:
 	items.append(name)
 
 func void_item() -> void:
-	var item_name = items.pop_front()
+	var item_index = randi_range(0, items.size() - 1)
+	var item_name = items[item_index]
+	items.remove_at(item_index)
 	voided_items.append(item_name)
 	emit_signal("items_changed")
 
