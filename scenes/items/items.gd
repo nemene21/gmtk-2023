@@ -16,7 +16,7 @@ const items = {
 		},
 		"repair_cost" : 750,
 		"texture" : preload("res://scenes/items/bouncysubstance.png"),
-		"description" : "Your bullets [wave]bounce[/wave] off the screen's edges!"
+		"description" : "Your bullets [wave amp=50]bounce[/wave] off the screen's edges!"
 	},
 	"Patient Demise" : {
 		"stats" : {
@@ -24,7 +24,7 @@ const items = {
 		},
 		"repair_cost" : 750,
 		"texture" : preload("res://scenes/items/patientdemise.png"),
-		"description" : "Bullets will [wave]patiently wait[/wave] to hit something instead of going off-screen!"
+		"description" : "Bullets will [wave amp=50]patiently wait[/wave] to hit something instead of going off-screen!"
 	},
 	"Silly Shells" : {
 		"stats" : {
@@ -53,7 +53,7 @@ const items = {
 		},
 		"repair_cost" : 750,
 		"texture" : preload("res://scenes/items/voidsedge.png"),
-		"description" : "The adrenaline makes you do [wave]double damage[/wave] when on 1 HP!?"
+		"description" : "The adrenaline makes you do [wave amp=50]double damage[/wave] when on 1 HP!?"
 	},
 	"Sharp Nail" : {
 		"stats" : {

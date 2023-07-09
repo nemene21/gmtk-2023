@@ -14,6 +14,8 @@ func _ready():
 	hitbox.attack.knockback = velocity * 0.2
 
 func _physics_process(delta):
+	hitbox.attack.knockback = velocity * 0.2
+	
 	sprite.rotation = velocity.angle()
 	move_and_slide()
 	
